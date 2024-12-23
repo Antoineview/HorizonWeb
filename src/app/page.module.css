@@ -1,6 +1,6 @@
 .background {
-    height: 100vh;
-    overflow: hidden; /* Prevent global scroll visually */
+    position: relative;
+    height: 100%; /* Ensure background covers the entire viewport */
 }
 
 .page {
@@ -15,36 +15,45 @@
     grid-template-rows: 20px 1fr 20px;
     align-items: center;
     justify-items: center;
-    height: 100%;
-    width: 100%;
     margin: 0;
     font-family: var(--font-geist-sans);
-    overflow: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-    .page {
-        --gray-rgb: 255, 255, 255;
-        --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-        --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-        --button-primary-hover: #ccc;
-        --button-secondary-hover: #1a1a1a;
-    }
-}
-
-.iframe {
-    width: 100%;
-    height: 100vh;
-    border: none;
+    position: relative;
+    z-index: 2; /* Ensure content is on top of the iframe */
 }
 
 .main {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    grid-row-start: 2;
-    overflow: hidden;
+    padding: 32px;
+    position: relative;
+    z-index: 2; /* Ensures content stays above the iframe */
+    margin-top: 100vh; /* Start content 2000px down */
+}
+
+.sticky {
+    width: 100%;
+    background-color: lightblue;
+    padding: 0px;
+    height: 1200px;
+}
+
+.stickybox {
+    position: sticky;
+    top: 0;
+    background-color: red;
+    height: 100vh;
+    padding: 0px;
+    color: white;
+    font-weight: bold;
+    z-index: 1; /* Ensure the box stays above the content */
+}
+
+.emptycontainer {
+    width: 100%;
+    background-color: lightgray;
+    padding: 0px;
+    height: 900px;
 }
 
 .main ol {
@@ -177,5 +186,215 @@ a.secondary {
 @media (prefers-color-scheme: dark) {
     .logo {
         filter: invert();
+    }
+}
+
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: lightgray; /* Adjust as needed */
+}
+
+.heroTitle {
+    font-size: 8rem; /* Adjust for preferred size */
+    color: black;
+    margin-bottom: 24px;
+    font-weight: bold;
+    font-family: var(--font-geist-sans);
+}
+
+.heroButtons {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.button {
+    appearance: none;
+    border-radius: 128px;
+    height: 48px;
+    padding: 0 20px;
+    border: none;
+    border: 1px solid transparent;
+    transition:
+        background 0.2s,
+        color 0.2s,
+        border-color 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.primary {
+    background: var(--button-primary-hover);
+    color: white;
+    gap: 8px;
+}
+
+.secondary {
+    background: white;
+    color: black;
+    border: 1px solid var(--gray-alpha-200);
+}
+
+.primary:hover {
+    background: #222; /* Darker shade for hover */
+}
+
+.secondary:hover {
+    background: var(--button-secondary-hover);
+    color: black;
+    border-color: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroButtons {
+        flex-direction: column;
+    }
+
+    .button {
+        font-size: 14px;
+        height: 40px;
+        padding: 0 16px;
+    }
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Ligne de temps modifiée */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #6a9bff, #45d9e1);
+    border-radius: 3px 0 0 3px; /* Arrondi uniquement à gauche */
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.event {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+.event .circle {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #fff, #b3e5fc);
+    border: 4px solid #00bcd4;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+.event:hover .circle {
+    transform: scale(1.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #00bcd4;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
+    transform: translate(-50%, -10px);
+    pointer-events: none;
+    font-size: 0.9em;
+    color: #333;
+    max-width: 300px;
+}
+
+.tooltip.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.tooltip strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    color: #00bcd4;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.tooltip .progress-item {
+    margin: 8px 0;
+}
+
+.tooltip .progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.tooltip .progress-value {
+    height: 100%;
+    background: linear-gradient(90deg, #6a9bff, #45d9e1);
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Animation de pulsation renforcée */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.7);
+    }
+    70% {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 15px rgba(0, 188, 212, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 188, 212, 0);
+    }
+}
+
+@keyframes bounceArrow {
+    0%,
+    100% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(-70%);
     }
 }
