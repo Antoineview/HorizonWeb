@@ -1,6 +1,9 @@
+// app/layout.jsx
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./page.module.css";
+import dynamic from "next/dynamic";
+import SplineViewer from "./SplineViewer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,28 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Scène 3D avec Spline */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {/* Boite contenant la scène 3D */}
-        <div className={styles.sticky}>
-          {/* En étant sticky, la scène 3D peut être animée de manière fluide */}
-          <div className={styles.stickybox}>
-            {/* La scène 3D est chargée depuis Spline */}
-            <spline-viewer
-              loading-anim-type="spinner-big-light"
-              // URL de la scène Spline
-              url="https://prod.spline.design/EaaBrHOt-GyzCiPI/scene.splinecode"
-              className="{styles.iframe}"
-            ></spline-viewer>
-          </div>
-        </div>
-        {/* Le contenu de la page sera ici */}
+        <SplineViewer />
         {children}
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"
-          async
-        ></script>
       </body>
     </html>
   );
