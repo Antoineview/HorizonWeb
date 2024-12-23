@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux d'inspiration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 75%; /* Augmenté de 70% à 75% */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 15px 15px 0 0; /* Ajusté pour ne pas avoir d'arrondi en bas */
+        }
+
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 0 0 15px 15px; /* Ajusté pour n'avoir l'arrondi qu'en bas */
+        }
+
+        .slide-content h2 {
+            color: #2196F3;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .slide-content p {
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 37.5%; /* Ajusté pour être centré sur l'image (75%/2) */
+            transform: translateY(-50%);
+            background: #2196F3;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            background: #1976D2;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button.prev {
+            left: 20px;
+            animation: pulseLeft 2s infinite;
+        }
+
+        .nav-button.next {
+            right: 20px;
+            animation: pulseRight 2s infinite;
+        }
+
+        .nav-button::before {
+            content: '';
+            width: 10px; /* Réduit de 12px à 10px */
+            height: 10px; /* Réduit de 12px à 10px */
+            border-top: 2px solid white; /* Réduit de 3px à 2px */
+            border-right: 2px solid white; /* Réduit de 3px à 2px */
+            display: block;
+            position: absolute; /* Ajouté pour un meilleur contrôle du positionnement */
+            left: 50%; /* Centre horizontalement */
+            top: 50%; /* Centre verticalement */
+            transform-origin: center; /* Assure que la rotation se fait depuis le centre */
+        }
+
+        .nav-button.prev::before {
+            transform: translate(-30%, -50%) rotate(-135deg); /* Ajusté pour un meilleur centrage */
+        }
+
+        .nav-button.next::before {
+            transform: translate(-70%, -50%) rotate(45deg); /* Ajusté pour un meilleur centrage */
+        }
+
+        @keyframes pulseLeft {
+            0% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-5px); }
+            100% { transform: translateY(-50%) translateX(0); }
+        }
+
+        @keyframes pulseRight {
+            0% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(5px); }
+            100% { transform: translateY(-50%) translateX(0); }
+        }
+
+        .vision-text {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            line-height: 1.6;
+            border-left: 4px solid #2196F3;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot:hover {
+            background: #90CAF9;
+        }
+
+        .dot.active {
+            background: #2196F3;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <img src="mario.jpg" alt="Mario Party">
+                <div class="slide-content">
+                    <h2>Mario Party (1998)</h2>
+                    <p>Un classique où mini-jeux, stratégie et coups de chance se mêlent pour offrir des retournements mémorables.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="fall.jpg" alt="Fall Guys">
+                <div class="slide-content">
+                    <h2>Fall Guys</h2>
+                    <p>Courses frénétiques, chaos organisé et éliminations successives dans une ambiance colorée.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="wario.jpg" alt="WarioWare">
+                <div class="slide-content">
+                    <h2>WarioWare</h2>
+                    <p>Micro-défis absurdes et ultrarapides, misant sur la spontanéité et l'humour.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="over.jpeg" alt="Overcooked">
+                <div class="slide-content">
+                    <h2>Overcooked</h2>
+                    <p>Coopération intense et gestion du chaos, où l'organisation fait toute la différence.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="switch.jpg" alt="1-2-Switch">
+                <div class="slide-content">
+                    <h2>1-2-Switch</h2>
+                    <p>Interaction directe entre joueurs pour des duels sociaux et captivants.</p>
+                </div>
+            </div>
+        </div>
+        <button class="nav-button prev"></button>
+        <button class="nav-button next"></button>
+    </div>
+    
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="vision-text">
+        Ces jeux ont façonné notre vision : diversité, compétition, coopération et créativité immédiate. HorizonBreak s'inspire de ces piliers pour offrir une expérience unique et marquante.
+    </div>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.nav-button.prev');
+        const nextBtn = document.querySelector('.nav-button.next');
+        const dots = document.querySelectorAll('.dot');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 20}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+    </script>
+</body>
+</html>
