@@ -4,6 +4,7 @@ import Spline from "@splinetool/react-spline/next";
 
 export default function Home() {
   return (
+    // Section 1 : Gros Titre et Call to Action
     <div className={styles.heroSection}>
       <h1 className={styles.heroTitle}>HorizonBreak</h1>
       <div className={styles.heroButtons}>
