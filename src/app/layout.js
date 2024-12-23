@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         <div className={styles.sticky}>
           <div className={styles.stickybox}>
             <spline-viewer
-              loading-anim-type="none"
+              loading-anim-type="spinner-big-dark"
               url="https://prod.spline.design/EaaBrHOt-GyzCiPI/scene.splinecode"
               className="{styles.iframe}"
             ></spline-viewer>
