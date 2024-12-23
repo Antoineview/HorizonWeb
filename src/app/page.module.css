@@ -41,7 +41,7 @@
 .stickybox {
     position: sticky;
     top: 0;
-    background-color: red;
+    background-color: black;
     height: 100vh;
     padding: 0px;
     color: white;
