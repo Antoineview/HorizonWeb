@@ -6,7 +6,7 @@ import styles from "../app/page.module.css";
 
 export default function SplineViewer() {
   useEffect(() => {
-    // First, ensure the spline-viewer script is loaded
+    // Load the spline-viewer script
     const script = document.createElement("script");
     script.type = "module";
     script.src =
@@ -14,17 +14,32 @@ export default function SplineViewer() {
     script.async = true;
     document.body.appendChild(script);
 
-    // Then handle the logo removal after the component loads
-    const timer = setTimeout(() => {
+    // Function to check and hide the logo
+    const hideLogo = () => {
       const viewer = document.querySelector("spline-viewer");
       if (viewer && viewer.shadowRoot) {
         const logo = viewer.shadowRoot.querySelector("#logo");
-        if (logo) logo.style.display = "none";
+        if (logo) {
+          logo.style.display = "none";
+          return true; // Logo found and hidden
+        }
       }
-    }, 1000);
+      return false; // Logo not yet found
+    };
+
+    // MutationObserver to monitor changes
+    const observer = new MutationObserver(() => {
+      if (hideLogo()) {
+        observer.disconnect(); // Stop observing once the logo is hidden
+      }
+    });
+
+    // Start observing the DOM for the viewer
+    const observerTarget = document.body;
+    observer.observe(observerTarget, { childList: true, subtree: true });
 
     return () => {
-      clearTimeout(timer);
+      observer.disconnect();
       document.body.removeChild(script);
     };
   }, []);

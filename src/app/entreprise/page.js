@@ -65,7 +65,7 @@ const timelineData = [
   },
 ];
 
-const Presentation = () => {
+const Timeline = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -166,4 +166,4 @@ const TimelineItem = ({ data, index }) => {
   );
 };
 
-export default Presentation;
+export default Timeline;
