@@ -3,6 +3,50 @@
     height: 100%; /* Ensure background covers the entire viewport */
 }
 
+/* Loader container */
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+/* Progress bar container */
+.progressContainer {
+    width: 80%; /* Width of the progress container */
+    height: 4rem; /* Height of the progress bar */
+    background-color: black; /* Light gray background */
+    border-radius: 0.25rem; /* Rounded corners for the container */
+    overflow: hidden;
+    margin-bottom: 2rem; /* Spacing between the progress bar and text */
+    position: relative;
+}
+
+/* Progress bar */
+.progressBar {
+    height: 100%;
+    background-color: #fff; /* Electric blue */
+    width: 0%; /* Start with 0 width */
+    transform-origin: left; /* Anchor the animation to the left */
+}
+
+/* Loading text */
+.loadingText {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
 .page {
     --gray-rgb: 0, 0, 0;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
