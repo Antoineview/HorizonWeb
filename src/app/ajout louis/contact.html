@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HorizonLabs - Contact</title>
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --dark-color: #2C3E50;
+            --light-color: #ECF0F1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .contact-content {
+            padding: 3rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(236, 240, 241, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+        }
+
+        .info-icon {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .info-value {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+
+        .info-value a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-value a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .contact-container {
+                margin: 1rem;
+                border-radius: 15px;
+            }
+
+            .contact-content {
+                padding: 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1 class="contact-title">Contactez-nous</h1>
+            <p class="contact-subtitle">Notre équipe est à votre écoute</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <span class="info-label">Adresse</span>
+                        <span class="info-value">81 avenue de Grande-Bretagne, Toulouse</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">
+                            <a href="mailto:contact@horizonslabs.com">contact@horizonslabs.com</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
