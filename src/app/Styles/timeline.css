@@ -53,7 +53,7 @@ body {
     top: 0;
     bottom: 0;
     width: 7px;
-    border-radius: 15;
+    border-radius: 15px;
     background: black;
     transform: translateX(-50%);
 }
@@ -68,7 +68,7 @@ body {
     padding: 1.5rem;
     background: white;
     color: black;
-    border-radius: 15;
+    border-radius: 15px;
     text-align: left;
     box-shadow:
         0px 0px 2.7px rgba(0, 0, 0, 0.012),
@@ -108,14 +108,14 @@ body {
 
 .timeline-progress-bar {
     height: 0.5rem;
-    border-radius: 15;
+    border-radius: 15px;
     background-color: white;
     overflow: hidden;
 }
 
 .timeline-progress-value {
     height: 100%;
-    border-radius: 15;
+    border-radius: 15px;
     background: black;
 }
 
