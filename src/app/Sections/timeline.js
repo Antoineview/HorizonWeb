@@ -17,43 +17,56 @@ const timelineData = [
     title: "Septembre 2024",
     description: "Création d'HorizonLabs et formation de l'équipe",
     progress: {
-      "Design des niveaux": 30,
-      Graphisme: 20,
-      IA: 20,
-      Site: 70,
-      Son: 10,
-      Multijoueur: 60,
-      "Interface utilisateur": 10,
+      "Design des niveaux": 0,
+      Graphisme: 0,
+      IA: 0,
+      Site: 0,
+      Son: 0,
+      Multijoueur: 0,
+      "Interface utilisateur": 0,
     },
   },
   {
     title: "Décembre 2024",
     description: "Première soutenance méthodologique",
     progress: {
-      "Design des niveaux": 60,
-      Graphisme: 40,
-      IA: 50,
-      Site: 100,
-      Son: 40,
-      Multijoueur: 80,
-      "Interface utilisateur": 60,
+      "Design des niveaux": 0,
+      Graphisme: 10,
+      IA: 0,
+      Site: 10,
+      Son: 0,
+      Multijoueur: 0,
+      "Interface utilisateur": 0,
     },
   },
   {
     title: "Janvier 2025",
     description: "Première soutenance technique",
     progress: {
-      "Design des niveaux": 80,
-      Graphisme: 70,
-      IA: 75,
+      "Design des niveaux": 20,
+      Graphisme: 40,
+      IA: 70,
       Site: 100,
-      Son: 70,
-      Multijoueur: 90,
-      "Interface utilisateur": 80,
+      Son: 10,
+      Multijoueur: 70,
+      "Interface utilisateur": 10,
     },
   },
   {
-    title: "Mai 2025",
+    title: "??? 2025",
+    description: "Deuxième soutenance technique",
+    progress: {
+      "Design des niveaux": 20,
+      Graphisme: 40,
+      IA: 70,
+      Site: 100,
+      Son: 10,
+      Multijoueur: 70,
+      "Interface utilisateur": 10,
+    },
+  },
+  {
+    title: "???? 2025",
     description: "Soutenance finale et commercialisation",
     progress: {
       "Design des niveaux": 100,
@@ -83,8 +96,10 @@ const Timeline = () => {
   return (
     <div className="timeline-container" ref={containerRef}>
       <header className="timeline-header">
-        <h1 className="timeline-title">HorizonLabs Roadmap</h1>
-        <p className="timeline-subtitle">Notre voyage vers l&apos;innovation</p>
+        <h1 className="timeline-title">🗺️ Feuille de route</h1>
+        <p className="timeline-subtitle">
+          Notre voyage vers l&apos;innovation ✈️
+        </p>
       </header>
 
       <div className="timeline">
