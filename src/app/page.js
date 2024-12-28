@@ -60,10 +60,19 @@ export default function Home() {
           </motion.div>
         ) : (
           <>
-            <SplineViewer />
-            <Timeline />
-            <Equipe />
-            <Footer />
+            {/* Sections with IDs */}
+            <section id="spline-viewer">
+              <SplineViewer />
+            </section>
+            <section id="timeline">
+              <Timeline />
+            </section>
+            <section id="equipe">
+              <Equipe />
+            </section>
+            <section id="footer">
+              <Footer />
+            </section>
           </>
         )}
       </AnimatePresence>

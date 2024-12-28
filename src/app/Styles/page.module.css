@@ -442,3 +442,36 @@ a.secondary {
         transform: translateY(-70%);
     }
 }
+
+/* Scroll Indicator */
+.scrollIndicator {
+    position: absolute;
+    top: 86%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    font-family: "Inter", sans-serif;
+    z-index: 10;
+}
+
+.scrollContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollText {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.arrow {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}

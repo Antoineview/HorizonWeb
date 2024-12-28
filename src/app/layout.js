@@ -1,6 +1,7 @@
 // app/layout.jsx
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./Components/Navbar.js";
 import styles from "./Styles/page.module.css";
 import dynamic from "next/dynamic";
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Navbar />
         {children}
       </body>
     </html>
