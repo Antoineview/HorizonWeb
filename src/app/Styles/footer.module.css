@@ -1,0 +1,21 @@
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8; /* Optional background for the container */
+}
+
+.timeline-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: white; /* Optional background for the footer */
+    color: black;
+    max-width: 960px; /* Limit the width of the footer */
+    width: 100%; /* Ensure it adjusts to smaller screens */
+}
+
+.timeline-footer p {
+    margin: 0;
+    font-size: 14px;
+}

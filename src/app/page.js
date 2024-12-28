@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "./page.module.css";
+import styles from "./Styles/page.module.css";
 import Script from "next/script";
 import Spline from "@splinetool/react-spline/next";
-import Timeline from "./entreprise/page";
+import Timeline from "./Sections/timeline";
+import SplineViewer from "./Sections/SplineViewer";
+import Equipe from "./Sections/equipe";
+import Footer from "./Sections/footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +21,7 @@ export default function Home() {
 
   return (
     <>
+      {/* Loading Screen to wait for spline 3D scene to load */}
       <AnimatePresence>
         {isLoading ? (
           <motion.div
@@ -27,6 +31,7 @@ export default function Home() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
+            {/* Progress bar animation using framer motion */}
             <motion.div className={styles.progressContainer}>
               <motion.div
                 className={styles.progressBar}
@@ -38,6 +43,7 @@ export default function Home() {
                 }}
               />
             </motion.div>
+            {/* Blinking animation text */}
             <motion.div
               className={styles.loadingText}
               initial={{ opacity: 0 }}
@@ -54,9 +60,10 @@ export default function Home() {
           </motion.div>
         ) : (
           <>
-            {/* Section 1: Spline */}
-            {/* Section 2: Timeline */}
+            <SplineViewer />
             <Timeline />
+            <Equipe />
+            <Footer />
           </>
         )}
       </AnimatePresence>

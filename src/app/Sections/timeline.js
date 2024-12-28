@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+
 import {
   motion,
   useScroll,
@@ -8,7 +9,8 @@ import {
   useSpring,
   useInView,
 } from "framer-motion";
-import "./timeline.css";
+
+import "../Styles/timeline.css";
 
 const timelineData = [
   {
@@ -92,10 +94,6 @@ const Timeline = () => {
           <TimelineItem key={index} data={item} index={index} />
         ))}
       </div>
-
-      <footer className="timeline-footer">
-        <p>&copy; 2024 HorizonLabs. Tous droits réservés.</p>
-      </footer>
     </div>
   );
 };

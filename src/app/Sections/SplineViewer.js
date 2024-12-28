@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-import styles from "../app/page.module.css";
+import styles from "../Styles/page.module.css";
 
 export default function SplineViewer() {
   useEffect(() => {
