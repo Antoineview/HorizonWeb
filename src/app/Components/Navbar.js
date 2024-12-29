@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const handleScroll = () => {
     // Show navbar only at the top of the page
-    setIsVisible(window.scrollY === 0);
+    setIsVisible(window.scrollY <= 15);
   };
 
   useEffect(() => {

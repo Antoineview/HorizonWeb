@@ -79,7 +79,11 @@
     width: 100%;
     background-color: lightblue;
     padding: 0px;
+<<<<<<< Updated upstream
     height: 2200px;
+=======
+    height: 3000px;
+>>>>>>> Stashed changes
 }
 
 .stickybox {
@@ -471,7 +475,7 @@ a.secondary {
 }
 
 .arrow {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: black;
 }

@@ -58,7 +58,6 @@ export default function SplineViewer() {
               transition={{ duration: 0.5 }}
             >
               <div className={styles.scrollContent}>
-                <span className={styles.scrollText}>Descendre</span>
                 <motion.div
                   className={styles.arrow}
                   initial={{ y: 0 }}
