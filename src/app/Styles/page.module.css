@@ -3,19 +3,31 @@
     height: 100%; /* Ensure background covers the entire viewport */
 }
 
-/* Loader container */
 .loader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    position: fixed;
+    position: fixed; /* Stays fixed on the screen */
     top: 0;
     left: 0;
-    z-index: 9999;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background-color: black; /* Loader background color */
+    color: white;
+    z-index: 9999; /* Ensures it is above all other elements */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+
+.loadingTitle {
+    font-size: 2rem; /* "Chargement" text size */
+    font-weight: 600; /* Semi-bold text */
+    margin-bottom: 1rem; /* Space below "Chargement" */
+}
+
+.loadingText {
+    font-size: 5rem; /* Percentage text size */
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Progress bar container */
@@ -35,16 +47,6 @@
     background-color: #fff; /* Electric blue */
     width: 0%; /* Start with 0 width */
     transform-origin: left; /* Anchor the animation to the left */
-}
-
-/* Loading text */
-.loadingText {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
 .page {

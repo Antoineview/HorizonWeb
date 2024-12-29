@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Styles/page.module.css";
-import Script from "next/script";
-import Spline from "@splinetool/react-spline/next";
 import Timeline from "./Sections/timeline";
 import SplineViewer from "./Sections/SplineViewer";
 import Equipe from "./Sections/equipe";
@@ -12,16 +10,27 @@ import Footer from "./Sections/footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [percentage, setPercentage] = useState(0);
 
-  // Simulate loading effect for 5 seconds
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 5000);
-    return () => clearTimeout(timer);
+    // Simulate loading effect with percentage increment
+    const interval = setInterval(() => {
+      setPercentage((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsLoading(false); // Stop loading when 100% is reached
+          return 100;
+        }
+        return prev + 1; // Increment percentage
+      });
+    }, 20); // Adjust interval speed for percentage increment
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      {/* Loading Screen to wait for spline 3D scene to load */}
+      {/* Loading Screen */}
       <AnimatePresence>
         {isLoading ? (
           <motion.div
@@ -31,36 +40,17 @@ export default function Home() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Progress bar animation using framer motion */}
-            <motion.div className={styles.progressContainer}>
-              <motion.div
-                className={styles.progressBar}
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{
-                  duration: 5, // 5 seconds for the animation
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.div>
-            {/* Blinking animation text */}
-            <motion.div
-              className={styles.loadingText}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
-              Loading...
+            {/* "Chargement" Text */}
+            <div className={styles.loadingTitle}>Chargement de la scène 3D</div>
+
+            {/* Percentage Text */}
+            <motion.div className={styles.loadingText}>
+              {percentage}%
             </motion.div>
           </motion.div>
         ) : (
           <>
-            {/* Sections with IDs */}
+            {/* Main Sections */}
             <section id="spline-viewer">
               <SplineViewer />
             </section>

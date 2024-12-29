@@ -23,7 +23,7 @@ export default function SplineViewer() {
         const logo = viewer.shadowRoot.querySelector("#logo");
         if (logo) logo.style.display = "none";
       }
-    }, 4500);
+    }, 2000);
 
     // Track scroll behavior
     const handleScroll = () => {
