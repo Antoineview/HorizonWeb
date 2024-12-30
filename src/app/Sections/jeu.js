@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "../Styles/jeu.module.css";
@@ -75,16 +75,20 @@ export default function Jeu() {
             }}
           >
             <div className={styles.featureImage}>
-              <Image
-                src={feature.image}
-                alt={feature.title}
-                width={600}
-                height={400}
-                priority
-              />
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  width={600}
+                  height={400}
+                  priority
+                />
+              </div>
+              <div className={styles.overlay}>
+                <p>{feature.description}</p>
+              </div>
             </div>
             <h2 className={styles.featureTitle}>{feature.title}</h2>
-            <p className={styles.featureDescription}>{feature.description}</p>
           </motion.div>
         ))}
       </motion.div>

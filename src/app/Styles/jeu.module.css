@@ -6,75 +6,98 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.title {
+  }
+  
+  .title {
 	font-size: 2.5rem;
 	font-weight: bold;
 	margin-bottom: 3rem;
 	text-align: center;
-}
-
-.featureList {
+  }
+  
+  .featureList {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 2rem;
 	width: 100%;
-}
-
-.featureCard {
-	background-color: #f9f9f9;
-	border-radius: 0.5rem;
-	box-shadow:
-		0px 0px 2.7px rgba(0, 0, 0, 0.012),
-		0px 0px 6.9px rgba(0, 0, 0, 0.018),
-		0px 0px 14.2px rgba(0, 0, 0, 0.022),
-		0px 0px 29.2px rgba(0, 0, 0, 0.028),
-		0px 0px 80px rgba(0, 0, 0, 0.04);
-	width: calc(33% - 1rem);
-	max-width: 350px;
-	padding: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.featureCard:hover {
-	transform: scale(1.05);
-	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.featureImage {
+  }
+  
+  .featureCard {
+	position: relative;
+	cursor: pointer;
+  }
+  
+  .imageWrapper {
+	position: relative;
 	width: 100%;
 	height: auto;
 	border-radius: 0.5rem;
 	overflow: hidden;
-	margin-bottom: 1rem;
-}
-
-.featureTitle {
+  }
+  
+  /* Assombrissement uniquement au hover */
+  .featureCard:hover .imageWrapper::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	pointer-events: none;
+  }
+  
+  .featureImage {
+	position: relative;
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	transition: all 0.3s ease;
+  }
+  
+  .featureTitle {
 	font-size: 1.25rem;
 	font-weight: 600;
 	margin-bottom: 0.5rem;
-}
-
-.featureDescription {
-	font-size: 0.875rem;
-	color: #666;
-	line-height: 1.5;
-}
-
-@media (max-width: 900px) {
+  }
+  
+  /* Overlay et texte amélioré */
+  .overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 85%; /* Réduit légèrement pour plus d'espace sur les côtés */
+	padding: 1.5rem;
+	color: white;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	z-index: 2;
+	/* Amélioration de la lisibilité du texte */
+	line-height: 1.6;
+	letter-spacing: 0.3px;
+	text-shadow: 
+	  1px 1px 1px rgba(0,0,0,0.6),
+	  -1px -1px 1px rgba(0,0,0,0.6); /* Ombre plus subtile */
+	background-color: rgba(0, 0, 0, 0.2); /* Fond très légèrement assombri */
+	border-radius: 4px;
+  }
+  
+  /* Affichage uniquement au hover */
+  .featureCard:hover .overlay {
+	opacity: 1;
+  }
+  
+  @media (max-width: 900px) {
 	.featureCard {
-		width: calc(50% - 1rem);
+	  width: calc(50% - 1rem);
 	}
-}
-
-@media (max-width: 600px) {
+  }
+  
+  @media (max-width: 600px) {
 	.featureCard {
-		width: 100%;
+	  width: 100%;
 	}
-}
+  }
