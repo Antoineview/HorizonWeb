@@ -7,7 +7,6 @@ import Timeline from "./Sections/timeline";
 import SplineViewer from "./Sections/SplineViewer";
 import Equipe from "./Sections/equipe";
 import Footer from "./Sections/footer";
-import Jeu from "./Sections/jeu";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,9 +62,6 @@ export default function Home() {
             </section>
             <section id="footer">
               <Footer />
-            </section>
-            <section id="jeu">
-              <Jeu />
             </section>
           </>
         )}
