@@ -39,7 +39,7 @@ const features = [
     title: "🎨 Environnement graphique évolutif et immersif",
     description:
       "Le cadre visuel d'HorizonBreak sert de toile de fond dynamique, reflétant la diversité des thèmes abordés. Bien qu'il ne soit pas central dans chaque interaction, l'environnement enrichit l'expérience globale par sa richesse graphique et sa cohérence avec les messages du jeu. Les graphismes, conçus pour être accessibles et stylisés, contribuent à maintenir l'intérêt des joueurs.",
-    image: "/images/features/feature5.jpg",
+    image: "/environnement.png",
   },
   {
     id: 6,
