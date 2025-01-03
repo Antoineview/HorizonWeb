@@ -78,7 +78,6 @@ export default function Jeu() {
               <div className={styles.imageWrapper}>
                 <Image
                   src={feature.image}
-                  alt={feature.title}
                   width={600}
                   height={400}
                   priority
