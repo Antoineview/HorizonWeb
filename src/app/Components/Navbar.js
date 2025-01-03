@@ -31,16 +31,19 @@ export default function Navbar() {
         <h1 className={styles.logo}>HorizonWeb</h1>
         <ul className={styles.navLinks}>
           <li>
-            <a href="#spline-viewer">Home</a>
+            <a href="#entreprise">Notre entreprise</a>
           </li>
           <li>
-            <a href="#timeline">Timeline</a>
+            <a href="#timeline">Feuille de route</a>
           </li>
           <li>
-            <a href="#equipe">Team</a>
+            <a href="#equipe">Notre équipe</a>
           </li>
           <li>
-            <a href="#footer">Contact</a>
+            <a href="#jeu">Notre jeu</a>
+          </li>
+          <li>
+            <a href="#footer">Nous contacter</a>
           </li>
         </ul>
       </div>
