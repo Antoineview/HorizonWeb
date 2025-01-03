@@ -42,9 +42,6 @@ export default function Navbar() {
           <li>
             <a href="#jeu">Notre jeu</a>
           </li>
-          <li>
-            <a href="#footer">Nous contacter</a>
-          </li>
         </ul>
       </div>
     </motion.div>
