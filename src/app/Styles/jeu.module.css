@@ -26,14 +26,31 @@
   .featureCard {
 	position: relative;
 	cursor: pointer;
+	width: calc(33.33% - 2rem); /* Trois cartes par ligne avec des espaces égaux */
+	max-width: 400px; /* Limite la largeur des cartes */
+	margin: 1rem; /* Ajoute un espacement uniforme */
+	box-sizing: border-box; /* Évite que les marges ou padding n'affectent la largeur totale */
   }
   
   .imageWrapper {
 	position: relative;
 	width: 100%;
-	height: auto;
-	border-radius: 0.5rem;
+	padding-top: 66.66%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	overflow: hidden;
+	border-radius: 0.5rem;
+  }
+
+  .imageWrapper img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover; /* Garde l'image bien centrée et adaptée au conteneur */
   }
   
   /* Assombrissement uniquement au hover */
