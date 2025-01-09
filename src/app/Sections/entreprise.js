@@ -44,9 +44,9 @@ const sections = [
       }
     ],
     expandedContent: {
-      title1: 'Notre Vision du Futur 🔮',
+      title1: 'Notre vision du Futur 🔮',
       text1: "Chez HorizonLabs, nous croyons que l'innovation naît de la diversité des idées et de la collaboration. Nos équipes conjuguent expertise et créativité pour repousser les frontières de l'imaginaire, tout en développant des solutions avancées pour nos partenaires.",
-      title2: 'Notre Objectif 🎯',
+      title2: 'Notre objectif 🎯',
       text2: 'Façonner un futur numérique et vidéoludique toujours plus captivant et inclusif, où chaque joueur peut vivre des expériences uniques et mémorables.'
     }
   },
@@ -57,9 +57,9 @@ const sections = [
     subtitle: 'Soutenir, inspirer, et valoriser chaque talent',
     quote: "Chez HorizonLabs, nous croyons que la diversité des perspectives est la clé de l'innovation. Chaque voix compte, chaque idée peut changer la donne.",
     expandedContent: {
-      title1: 'Notre Philosophie 🌟',
+      title1: 'Notre philosophie 🌟',
       text1: "Nous investissons dans nos collaborateurs en offrant un environnement de travail inclusif, des opportunités de formation continue, et une culture où chacun peut s'exprimer librement.",
-      title2: 'Notre Force Collective 🤝',
+      title2: 'Notre force collective 🤝',
       text2: 'Cette approche renforce la cohésion et la créativité au sein de nos équipes, qui partagent un objectif commun : créer des expériences innovantes et impactantes qui marquent les esprits.'
     }
   },
@@ -71,9 +71,9 @@ const sections = [
     image: '/epita.jpg',
     description: "Un cadre de travail stimulant où l'équilibre et la productivité se rencontrent naturellement.",
     expandedContent: {
-      title1: 'Des Espaces Pensés pour Vous 🎨',
+      title1: 'Des espaces pensés pour vous 🎨',
       text1: "Nos locaux modernes et nos espaces de détente sont conçus pour favoriser le bien-être et l'épanouissement de nos collaborateurs.",
-      title2: "Un Quartier Dynamique 🌟",
+      title2: "Un quartier dynamique 🌟",
       text2: 'Avec des infrastructures locales variées, comme des salles de sport et de théâtre, nous encourageons un équilibre harmonieux entre vie professionnelle et personnelle. Chez HorizonLabs, nous cultivons un esprit sain dans un environnement créatif.'
     }
   }
