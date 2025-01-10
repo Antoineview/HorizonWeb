@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import styles from "../Styles/jeu.module.css";
 
@@ -50,48 +50,100 @@ const features = [
   },
 ];
 
-export default function Jeu() {
+const Features = () => {
+  const [selectedId, setSelectedId] = useState(null);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>HorizonBreak - Notre Jeu</h1>
-      <motion.div
-        className={styles.featureList}
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
-        }}
-      >
+      <div className={styles.featureList}>
         {features.map((feature) => (
           <motion.div
             key={feature.id}
+            layoutId={`card-${feature.id}`}
+            onClick={() => setSelectedId(feature.id)}
             className={styles.featureCard}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
           >
-            <div className={styles.featureImage}>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={feature.image}
-                  alt={feature.title}
-                  width={600}
-                  height={400}
-                  priority
-                />
-              </div>
-              <div className={styles.overlay}>
-                <p>{feature.description}</p>
-              </div>
-            </div>
-            <h2 className={styles.featureTitle}>{feature.title}</h2>
+            <motion.div
+              layoutId={`image-container-${feature.id}`}
+              className={styles.imageContainer}
+            >
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                width={600}
+                height={400}
+                className={styles.featureImage}
+                priority
+              />
+            </motion.div>
+            <motion.h2
+              layoutId={`title-${feature.id}`}
+              className={styles.featureTitle}
+            >
+              {feature.title}
+            </motion.h2>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {selectedId && (
+          <motion.div
+            key="overlay"
+            initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            className={styles.overlay}
+            onClick={() => setSelectedId(null)}
+          >
+            <motion.div
+              layoutId={`card-${selectedId}`}
+              className={styles.expandedCard}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const feature = features.find((f) => f.id === selectedId);
+                if (!feature) return null;
+                return (
+                  <>
+                    <motion.div
+                      layoutId={`image-container-${feature.id}`}
+                      className={styles.expandedImageContainer}
+                    >
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={600}
+                        height={400}
+                        className={styles.expandedFeatureImage}
+                      />
+                    </motion.div>
+                    <motion.h2
+                      layoutId={`title-${feature.id}`}
+                      className={styles.expandedFeatureTitle}
+                    >
+                      {feature.title}
+                    </motion.h2>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={styles.featureDescription}
+                    >
+                      {feature.description}
+                    </motion.p>
+                  </>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
-}
+};
+
+export default Features;
