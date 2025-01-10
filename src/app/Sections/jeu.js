@@ -60,16 +60,12 @@ const Features = () => {
         {features.map((feature) => (
           <motion.div
             key={feature.id}
-            layoutId={`card-${feature.id}`}
-            onClick={() => setSelectedId(feature.id)}
             className={styles.featureCard}
+            onClick={() => setSelectedId(feature.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              layoutId={`image-container-${feature.id}`}
-              className={styles.imageContainer}
-            >
+            <div className={styles.imageContainer}>
               <Image
                 src={feature.image}
                 alt={feature.title}
@@ -78,13 +74,8 @@ const Features = () => {
                 className={styles.featureImage}
                 priority
               />
-            </motion.div>
-            <motion.h2
-              layoutId={`title-${feature.id}`}
-              className={styles.featureTitle}
-            >
-              {feature.title}
-            </motion.h2>
+            </div>
+            <h2 className={styles.featureTitle}>{feature.title}</h2>
           </motion.div>
         ))}
       </div>
@@ -93,26 +84,26 @@ const Features = () => {
         {selectedId && (
           <motion.div
             key="overlay"
-            initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-            animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-            exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-              layoutId={`card-${selectedId}`}
+              key={`card-${selectedId}`}
               className={styles.expandedCard}
               onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
             >
               {(() => {
                 const feature = features.find((f) => f.id === selectedId);
                 if (!feature) return null;
                 return (
                   <>
-                    <motion.div
-                      layoutId={`image-container-${feature.id}`}
-                      className={styles.expandedImageContainer}
-                    >
+                    <div className={styles.expandedImageContainer}>
                       <Image
                         src={feature.image}
                         alt={feature.title}
@@ -120,21 +111,13 @@ const Features = () => {
                         height={400}
                         className={styles.expandedFeatureImage}
                       />
-                    </motion.div>
-                    <motion.h2
-                      layoutId={`title-${feature.id}`}
-                      className={styles.expandedFeatureTitle}
-                    >
+                    </div>
+                    <h2 className={styles.expandedFeatureTitle}>
                       {feature.title}
-                    </motion.h2>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className={styles.featureDescription}
-                    >
+                    </h2>
+                    <p className={styles.featureDescription}>
                       {feature.description}
-                    </motion.p>
+                    </p>
                   </>
                 );
               })()}
