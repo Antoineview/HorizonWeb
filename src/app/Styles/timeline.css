@@ -50,7 +50,7 @@ body {
 .timeline-line {
     position: absolute;
     left: 50%;
-    top: 3;
+    top: 0;
     bottom: 0;
     width: 7px;
     border-radius: 15px;
@@ -145,7 +145,7 @@ body {
 
 
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 768px) {
     /* Ajustement de la frise chronologique */
     .timeline-container {
         padding: 2rem 1rem;
@@ -161,7 +161,16 @@ body {
         margin: 0 auto;
     }
 
-    
+    .timeline-line {
+        position: absolute;
+        left: 50.6%;
+        top: -32;
+        bottom: 0;
+        width: 6px; /* Réduit la largeur de la frise */
+        border-radius: 15px;
+        background: black;
+        transform: translateX(-50%);
+    }
 
     .timeline-item {
         margin-bottom: 4rem; /* Ajuste l'espacement entre les éléments */
