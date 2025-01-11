@@ -56,6 +56,7 @@ body {
     border-radius: 15px;
     background: black;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 .timeline-item {
