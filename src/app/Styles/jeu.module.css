@@ -9,9 +9,10 @@
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     font-weight: bold;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 .featureList {
@@ -74,6 +75,7 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5); /* Pour un fond semi-transparent */
 }
 
 .expandedCard {
@@ -83,10 +85,31 @@
     border-radius: 0.5rem;
     max-width: 600px;
     width: 90%;
+    height: 80vh; /* Limiter la hauteur pour les mobiles */
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto; /* Activer le défilement si nécessaire */
+    position: relative; /* Pour positionner le bouton de fermeture */
 }
+
+.closeButton {
+    position: absolute;
+    top: -0.5rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.closeButton:hover {
+    color: red;
+}
+
 
 .expandedImageContainer {
     width: 100%;

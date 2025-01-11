@@ -81,50 +81,56 @@ const Features = () => {
       </div>
 
       <AnimatePresence>
-        {selectedId && (
-          <motion.div
+    {selectedId && (
+        <motion.div
             key="overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
-          >
+        >
             <motion.div
-              key={`card-${selectedId}`}
-              className={styles.expandedCard}
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
+                key={`card-${selectedId}`}
+                className={styles.expandedCard}
+                onClick={(e) => e.stopPropagation()}
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
             >
-              {(() => {
-                const feature = features.find((f) => f.id === selectedId);
-                if (!feature) return null;
-                return (
-                  <>
-                    <div className={styles.expandedImageContainer}>
-                      <Image
-                        src={feature.image}
-                        alt={feature.title}
-                        width={600}
-                        height={400}
-                        className={styles.expandedFeatureImage}
-                      />
-                    </div>
-                    <h2 className={styles.expandedFeatureTitle}>
-                      {feature.title}
-                    </h2>
-                    <p className={styles.featureDescription}>
-                      {feature.description}
-                    </p>
-                  </>
-                );
-              })()}
+                <button
+                    className={styles.closeButton}
+                    onClick={() => setSelectedId(null)}
+                >
+                    &times; {/* Affiche une croix */}
+                </button>
+                {(() => {
+                    const feature = features.find((f) => f.id === selectedId);
+                    if (!feature) return null;
+                    return (
+                        <>
+                            <div className={styles.expandedImageContainer}>
+                                <Image
+                                    src={feature.image}
+                                    alt={feature.title}
+                                    width={600}
+                                    height={400}
+                                    className={styles.expandedFeatureImage}
+                                />
+                            </div>
+                            <h2 className={styles.expandedFeatureTitle}>
+                                {feature.title}
+                            </h2>
+                            <p className={styles.featureDescription}>
+                                {feature.description}
+                            </p>
+                        </>
+                    );
+                })()}
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </motion.div>
+    )}
+</AnimatePresence>
     </div>
   );
 };
