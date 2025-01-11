@@ -92,6 +92,7 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
+    overflow-y: auto; /* Permet de défiler si le contenu dépasse */
 }
 
 .expandedCard {
@@ -104,6 +105,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    overflow-y: auto; /* Ajout pour permettre le défilement interne */
+    max-height: 90vh; /* Limite la hauteur pour éviter de dépasser l'écran */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton {
+    position: absolute;
+    top: -0.5rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.closeButton:hover {
+    color: red;
 }
 
 .expandedImageContainer {

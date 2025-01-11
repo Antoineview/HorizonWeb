@@ -102,51 +102,58 @@ export default function Equipe() {
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-              layoutId={`card-${selectedId}`}
-              className={styles.expandedCard}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {(() => {
-                const member = teamMembers.find((m) => m.id === selectedId);
-                if (!member) return null;
-                return (
-                  <>
-                    <motion.div
-                      layoutId={`image-container-${member.id}`}
-                      className={styles.expandedImageContainer}
-                    >
-                      <Image
+    layoutId={`card-${selectedId}`}
+    className={styles.expandedCard}
+    onClick={(e) => e.stopPropagation()}
+>
+    <button
+        className={styles.closeButton}
+        onClick={() => setSelectedId(null)}
+        aria-label="Fermer"
+    >
+        &times;
+    </button>
+    {(() => {
+        const member = teamMembers.find((m) => m.id === selectedId);
+        if (!member) return null;
+        return (
+            <>
+                <motion.div
+                    layoutId={`image-container-${member.id}`}
+                    className={styles.expandedImageContainer}
+                >
+                    <Image
                         src={member.image}
                         alt={member.name}
                         width={300}
                         height={300}
                         className={styles.expandedMemberImage}
-                      />
-                    </motion.div>
-                    <motion.h2
-                      layoutId={`name-${member.id}`}
-                      className={styles.expandedMemberName}
-                    >
-                      {member.name}
-                    </motion.h2>
-                    <motion.p
-                      layoutId={`role-${member.id}`}
-                      className={styles.expandedMemberRole}
-                    >
-                      {member.role}
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className={styles.memberDescription}
-                    >
-                      {member.description}
-                    </motion.p>
-                  </>
-                );
-              })()}
-            </motion.div>
+                    />
+                </motion.div>
+                <motion.h2
+                    layoutId={`name-${member.id}`}
+                    className={styles.expandedMemberName}
+                >
+                    {member.name}
+                </motion.h2>
+                <motion.p
+                    layoutId={`role-${member.id}`}
+                    className={styles.expandedMemberRole}
+                >
+                    {member.role}
+                </motion.p>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className={styles.memberDescription}
+                >
+                    {member.description}
+                </motion.p>
+            </>
+        );
+    })()}
+</motion.div>
           </motion.div>
         )}
       </AnimatePresence>
