@@ -164,7 +164,7 @@ body {
     .timeline-line {
         position: absolute;
         left: 50.6%;
-        top: -32;
+        top: -22;
         bottom: 0;
         width: 6px; /* Réduit la largeur de la frise */
         border-radius: 15px;
