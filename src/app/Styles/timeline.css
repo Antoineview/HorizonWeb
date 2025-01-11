@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
 
 :root {
-    --electricblue: #7df9ff;
+    --electricblue: #000000;
 }
 
 body {
@@ -141,4 +141,98 @@ body {
     background: white;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    /* Ajustement de la frise chronologique */
+    .timeline-container {
+        padding: 2rem 1rem;
+    }
+
+    .timeline-header {
+        padding: 2rem 0;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .timeline-line {
+        position: absolute;
+        left: 50.6%;
+        top: -32;
+        bottom: 0;
+        width: 6px; /* Réduit la largeur de la frise */
+        border-radius: 15px;
+        background: black;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        margin-bottom: 4rem; /* Ajuste l'espacement entre les éléments */
+        position: relative;
+    }
+
+    .timeline-item-content {
+        width: 90%; /* Réduit la largeur pour plus d'espace sur mobile */
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    /* Ajustement des points sur la frise */
+    .timeline-dot {
+        position: absolute;
+        left: 49%;
+        top: -40;
+        width: 1.2rem; /* Réduit la taille du point */
+        height: 1.2rem;
+        background: black;
+        border-radius: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .timeline-dot::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.6rem; /* Ajuste la taille du point blanc à l'intérieur */
+        height: 0.6rem;
+        background: white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Ajustement des progress bar */
+    .timeline-progress-bar {
+        height: 0.4rem; /* Réduit la hauteur de la barre */
+        border-radius: 15px;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .timeline-progress-value {
+        height: 100%;
+        border-radius: 15px;
+        background: black;
+    }
+
+    .timeline-item-description {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .timeline-categories {
+        display: flex;
+        justify-content: space-between; /* Alignement à gauche et droite */
+        width: 100%;
+    }
+
+    .timeline-progress {
+        margin-bottom: 1rem; /* Espacement entre les barres de progression */
+    }
 }
