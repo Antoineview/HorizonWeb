@@ -48,7 +48,6 @@ body {
 }
 
 .timeline-line {
-    opacity: 1;
     position: absolute;
     left: 50%;
     top: 3;
@@ -57,8 +56,9 @@ body {
     border-radius: 15px;
     background: black;
     transform: translateX(-50%);
-    animation: none;
-    transform: none;
+    visibility: visible !important;
+    display: block !important;
+    
 }
 
 .timeline-item {
