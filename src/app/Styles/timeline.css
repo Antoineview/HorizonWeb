@@ -50,7 +50,7 @@ body {
 .timeline-line {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 3px;
     bottom: 0;
     width: 7px;
     border-radius: 15px;
@@ -164,7 +164,7 @@ body {
     .timeline-line {
         position: absolute;
         left: 50.6%;
-        top: -22;
+        top: -22px;
         bottom: 0;
         width: 6px; /* Réduit la largeur de la frise */
         border-radius: 15px;
@@ -186,7 +186,7 @@ body {
     .timeline-dot {
         position: absolute;
         left: 49%;
-        top: -25;
+        top: -25px;
         width: 1.2rem; /* Réduit la taille du point */
         height: 1.2rem;
         background: black;
