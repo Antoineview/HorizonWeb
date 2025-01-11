@@ -56,9 +56,6 @@ body {
     border-radius: 15px;
     background: black;
     transform: translateX(-50%);
-    visibility: visible !important;
-    display: block !important;
-    
 }
 
 .timeline-item {
@@ -164,16 +161,7 @@ body {
         margin: 0 auto;
     }
 
-    .timeline-line {
-        position: absolute;
-        left: 50.6%;
-        top: -22;
-        bottom: 0;
-        width: 6px; /* Réduit la largeur de la frise */
-        border-radius: 15px;
-        background: black;
-        transform: translateX(-50%);
-    }
+    
 
     .timeline-item {
         margin-bottom: 4rem; /* Ajuste l'espacement entre les éléments */
