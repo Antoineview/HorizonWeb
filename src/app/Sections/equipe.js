@@ -16,8 +16,8 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Antoine RICHARD-CAPPONI 🖌️",
-    role: "Responsable de la R&D des niveaux",
+    name: "Antoine RICHARD-CAPPONI",
+    role: "Responsable de la R&D 🔍 des niveaux et du site web 🌐",
     description:
       "Antoine, né en 2007, est sous-chef de l'équipe et gère la planification des réunions. Créatif et passionné, il conçoit des designs uniques et explore des idées de gameplay innovantes, inspirées notamment par l'origami. Admirateur du design épuré d'Apple, il apporte une expertise technique précieuse à l'équipe, notamment, sur le site web.",
     image: "/antoine.png",
@@ -103,58 +103,58 @@ export default function Equipe() {
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-    layoutId={`card-${selectedId}`}
-    className={styles.expandedCard}
-    onClick={(e) => e.stopPropagation()}
->
-    <button
-        className={styles.closeButton}
-        onClick={() => setSelectedId(null)}
-        aria-label="Fermer"
-    >
-        &times;
-    </button>
-    {(() => {
-        const member = teamMembers.find((m) => m.id === selectedId);
-        if (!member) return null;
-        return (
-            <>
-                <motion.div
-                    layoutId={`image-container-${member.id}`}
-                    className={styles.expandedImageContainer}
-                >
-                    <Image
+              layoutId={`card-${selectedId}`}
+              className={styles.expandedCard}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className={styles.closeButton}
+                onClick={() => setSelectedId(null)}
+                aria-label="Fermer"
+              >
+                &times;
+              </button>
+              {(() => {
+                const member = teamMembers.find((m) => m.id === selectedId);
+                if (!member) return null;
+                return (
+                  <>
+                    <motion.div
+                      layoutId={`image-container-${member.id}`}
+                      className={styles.expandedImageContainer}
+                    >
+                      <Image
                         src={member.image}
                         alt={member.name}
                         width={300}
                         height={300}
                         className={styles.expandedMemberImage}
-                    />
-                </motion.div>
-                <motion.h2
-                    layoutId={`name-${member.id}`}
-                    className={styles.expandedMemberName}
-                >
-                    {member.name}
-                </motion.h2>
-                <motion.p
-                    layoutId={`role-${member.id}`}
-                    className={styles.expandedMemberRole}
-                >
-                    {member.role}
-                </motion.p>
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className={styles.memberDescription}
-                >
-                    {member.description}
-                </motion.p>
-            </>
-        );
-    })()}
-</motion.div>
+                      />
+                    </motion.div>
+                    <motion.h2
+                      layoutId={`name-${member.id}`}
+                      className={styles.expandedMemberName}
+                    >
+                      {member.name}
+                    </motion.h2>
+                    <motion.p
+                      layoutId={`role-${member.id}`}
+                      className={styles.expandedMemberRole}
+                    >
+                      {member.role}
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={styles.memberDescription}
+                    >
+                      {member.description}
+                    </motion.p>
+                  </>
+                );
+              })()}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

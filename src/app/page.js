@@ -56,17 +56,18 @@ export default function Home() {
             <section id="spline-viewer">
               <SplineViewer />
             </section>
-            <section id="jeu">
-              <Jeu />
+            <section id="entreprise">
+              <Entreprise />
             </section>
+
             <section id="timeline">
               <Timeline />
             </section>
             <section id="equipe">
               <Equipe />
             </section>
-            <section id="entreprise">
-              <Entreprise/>
+            <section id="jeu">
+              <Jeu />
             </section>
             <section id="footer">
               <Footer />
