@@ -19,7 +19,7 @@
 }
 
 .loadingTitle {
-    font-size: 2rem; /* "Chargement" text size */
+    font-size: 1.8rem; /* "Chargement" text size */
     font-weight: 600; /* Semi-bold text */
     margin-bottom: 1rem; /* Space below "Chargement" */
 }
