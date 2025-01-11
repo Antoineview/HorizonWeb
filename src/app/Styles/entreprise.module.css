@@ -172,11 +172,12 @@
   
   @media (max-width: 768px) {
     .sectionTitle h2 {
-      font-size: 2rem;
+      font-size: 1.7rem;
+      gap: 0.5rem;
     }
   
     .sectionEmoji {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
     }
   
     .grid {

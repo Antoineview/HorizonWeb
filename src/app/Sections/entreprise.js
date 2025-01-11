@@ -44,7 +44,7 @@ const sections = [
       }
     ],
     expandedContent: {
-      title1: 'Notre vision du Futur 🔮',
+      title1: 'Notre vision du futur 🔮',
       text1: "Chez HorizonLabs, nous croyons que l'innovation naît de la diversité des idées et de la collaboration. Nos équipes conjuguent expertise et créativité pour repousser les frontières de l'imaginaire, tout en développant des solutions avancées pour nos partenaires.",
       title2: 'Notre objectif 🎯',
       text2: 'Façonner un futur numérique et vidéoludique toujours plus captivant et inclusif, où chaque joueur peut vivre des expériences uniques et mémorables.'
