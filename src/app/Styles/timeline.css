@@ -145,7 +145,7 @@ body {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 468px) {
     /* Ajustement de la frise chronologique */
     .timeline-container {
         padding: 2rem 1rem;

@@ -70,6 +70,7 @@ export default function Equipe() {
             >
               <Image
                 src={member.image}
+                alt={member.name}
                 width={200}
                 height={200}
                 className={styles.memberImage}
