@@ -45,7 +45,7 @@ const timelineData = [
     progress: {
       "Design des niveaux": 20,
       Graphisme: 40,
-      IA: 70,
+      IA: 20,
       Site: 100,
       Son: 10,
       Multijoueur: 70,
