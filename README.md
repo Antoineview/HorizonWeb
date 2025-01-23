@@ -6,11 +6,8 @@
 	<img src="https://img.shields.io/github/languages/top/Antoineview/HorizonWeb?style=default&color=0080ff" alt="repo-top-language">
 	<img src="https://img.shields.io/github/languages/count/Antoineview/HorizonWeb?style=default&color=0080ff" alt="repo-language-count">
 </p>
-<p align="left"><!-- default option, no dependency badges. -->
-</p>
-<p align="left">
-	<!-- default option, no dependency badges. -->
-</p>
+<p align="left"></p>
+<p align="left"></p>
 </div>
 <br clear="right">
 
@@ -34,13 +31,17 @@
 
 ## 📍 Overview
 
-<code>❯ REPLACE-ME</code>
+HorizonWeb is an innovative web project designed using **Next.js**, **Spline**, and **Framer Motion**. It combines smooth 3D animations and intuitive scrolling mechanisms to deliver an immersive user experience across devices. Our introduction animation reflects our project's cutting-edge essence, while the timeline showcases HorizonLabs' milestones with seamless transitions.
 
 ---
 
 ## 👾 Features
 
-<code>❯ REPLACE-ME</code>
+- **3D Intro Animation**: Built with **Spline** for an immersive landing experience.
+- **Smooth Scrolling**: Synchronizes animations with page scroll for a fluid user experience.
+- **Dynamic Timeline**: Tracks HorizonLabs' history with elegant animations powered by **Framer Motion**.
+- **Device Responsiveness**: Ensures a consistent experience across all screen sizes.
+- **Modular Components**: Easy-to-maintain architecture with reusable React components.
 
 ---
 
@@ -59,7 +60,7 @@
     ├── public
     └── src
         └── app
-```
+``
 
 
 ### 📂 Project Index
