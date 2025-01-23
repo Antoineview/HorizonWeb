@@ -1,9 +1,7 @@
 <div align="left" style="position: relative;">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" align="right" width="30%" style="margin: -20px 0 0 20px;">
+
 <h1>HORIZONWEB</h1>
-<p align="left">
-	<em><code>❯ REPLACE-ME</code></em>
-</p>
+
 <p align="left">
 	<img src="https://img.shields.io/github/license/Antoineview/HorizonWeb?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
 	<img src="https://img.shields.io/github/last-commit/Antoineview/HorizonWeb?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
@@ -61,15 +59,6 @@
     ├── package-lock.json
     ├── package.json
     ├── public
-    │   ├── antoine.png
-    │   ├── elian.png
-    │   ├── environnement.png
-    │   ├── epita.jpg
-    │   ├── fanny.png
-    │   ├── firdaws.png
-    │   ├── louis.png
-    │   ├── omegalogo.svg
-    │   └── vide.jpg
     └── src
         └── app
 ```
@@ -359,14 +348,3 @@ Run the test suite using the following command:
 
 ---
 
-## 🎗 License
-
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
----
-
-## 🙌 Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
-
----
