@@ -11,28 +11,28 @@ const features = [
     title: "🎲 Génération procédurale et aléatoire des salles",
     description:
       "Le cœur d'HorizonBreak repose sur une expérience unique à chaque partie grâce à la génération aléatoire et procédurale des salles. Les joueurs explorent cinq défis thématiques, chaque parcours étant imprévisible, empêchant toute anticipation. Certaines salles s'adaptent dynamiquement au contexte ou au niveau des joueurs, créant une expérience sur mesure. Cette mécanique favorise la rejouabilité et reflète l'idée que chaque décision entraîne des conséquences inattendues. Elle renforce également l'immersion en proposant un environnement toujours renouvelé.",
-    image: "/images/features/feature1.jpg",
+    image: "/api_antoine.jpg",
   },
   {
     id: 2,
     title: "🎮 Mini-jeux thématiques axés sur des dilemmes sociétaux",
     description:
       "Chaque salle propose un mini-jeu qui aborde des problématiques contemporaines (écologie, inclusion, responsabilité sociétale) de manière ludique et implicite. Les joueurs gèrent des ressources, coopèrent pour surmonter des obstacles ou prennent des décisions rapides face à des situations complexes. Ces scénarios éducatifs stimulent la réflexion sans moralisation directe, renforçant l'impact du jeu sur la conscience des enjeux mondiaux.",
-    image: "/images/features/feature2.jpg",
+    image: "/dilemme.png",
   },
   {
     id: 3,
     title: "🤝 Compétition et coopération dynamique",
     description:
       "HorizonBreak mélange habilement compétition et coopération, créant une tension positive. Bien que les joueurs cherchent à s'échapper le plus vite possible, certains défis exigent une collaboration étroite pour progresser. Ce système engage les participants dans une réflexion sur la solidarité et l'importance des interactions sociales tout en maintenant une dynamique compétitive motivante.",
-    image: "/images/features/feature3.jpg",
+    image: "/cooperation.jpg",
   },
   {
     id: 4,
     title: "🌍 Sensibilisation subtile à travers un gameplay immersif",
     description:
       "Le jeu utilise des mécaniques et des environnements immersifs pour sensibiliser à des enjeux majeurs comme le changement climatique ou les inégalités. Plutôt que d'être au centre des interactions, ces thèmes sont intégrés subtilement, permettant une prise de conscience naturelle. Les joueurs s'amusent tout en développant une compréhension des problématiques abordées.",
-    image: "/images/features/feature4.jpg",
+    image: "/sensibilisation.png",
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const features = [
     title: "👥 Accessibilité et convivialité",
     description:
       "Avec des commandes intuitives et des règles claires, HorizonBreak vise un public varié, allant des joueurs occasionnels aux passionnés. Cette accessibilité est renforcée par un gameplay multijoueur favorisant les échanges et le plaisir collectif. L'objectif est de rassembler des individus de différents horizons autour d'une expérience ludique et enrichissante.",
-    image: "/images/features/feature6.jpg",
+    image: "/accessibilite.png",
   },
 ];
 
