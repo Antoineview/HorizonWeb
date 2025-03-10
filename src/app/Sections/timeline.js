@@ -45,7 +45,7 @@ const timelineData = [
     progress: {
       "Design des niveaux": 20,
       Graphisme: 40,
-      IA: 70,
+      IA: 20,
       Site: 100,
       Son: 10,
       Multijoueur: 70,
@@ -53,7 +53,7 @@ const timelineData = [
     },
   },
   {
-    title: "??? 2025",
+    title: "Mars 2025",
     description: "Deuxième soutenance technique",
     progress: {
       "Design des niveaux": 20,
@@ -66,7 +66,7 @@ const timelineData = [
     },
   },
   {
-    title: "???? 2025",
+    title: "Mai 2025",
     description: "Soutenance finale et commercialisation",
     progress: {
       "Design des niveaux": 100,

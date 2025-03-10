@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
 
 :root {
-    --electricblue: #7df9ff;
+    --electricblue: #000000;
 }
 
 body {
@@ -28,14 +28,14 @@ body {
 }
 
 .timeline-title {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 800;
     color: black;
     margin-bottom: 1rem;
 }
 
 .timeline-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: electricblue;
 }
@@ -50,7 +50,7 @@ body {
 .timeline-line {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 3px;
     bottom: 0;
     width: 7px;
     border-radius: 15px;
@@ -141,4 +141,97 @@ body {
     background: white;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    /* Ajustement de la frise chronologique */
+    .timeline-container {
+        padding: 2rem 1rem;
+    }
+
+    .timeline-header {
+        padding: 2rem 0;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .timeline-line {
+        position: absolute;
+        left: 50.8%;
+        top: -22px;
+        bottom: 0;
+        width: 6px; /* Réduit la largeur de la frise */
+        border-radius: 15px;
+        background: black;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        margin-bottom: 4rem; /* Ajuste l'espacement entre les éléments */
+        position: relative;
+    }
+
+    .timeline-item-content {
+        width: 90%; /* Utiliser un pourcentage, mais max-width est plus sûr */
+        max-width: 100%; /* Assurer qu'il ne dépasse pas la largeur de l'écran */
+    }
+
+    /* Ajustement des points sur la frise */
+    .timeline-dot {
+        position: absolute;
+        left: 49%;
+        top: -25px;
+        width: 1.2rem; /* Réduit la taille du point */
+        height: 1.2rem;
+        background: black;
+        border-radius: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .timeline-dot::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.6rem; /* Ajuste la taille du point blanc à l'intérieur */
+        height: 0.6rem;
+        background: white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Ajustement des progress bar */
+    .timeline-progress-bar {
+        height: 0.4rem; /* Réduit la hauteur de la barre */
+        border-radius: 15px;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .timeline-progress-value {
+        height: 100%;
+        border-radius: 15px;
+        background: black;
+    }
+
+    .timeline-item-description {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .timeline-categories {
+        display: flex;
+        justify-content: space-between; /* Alignement à gauche et droite */
+        width: 100%;
+    }
+
+    .timeline-progress {
+        margin-bottom: 1rem; /* Espacement entre les barres de progression */
+    }
 }
