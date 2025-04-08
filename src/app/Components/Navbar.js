@@ -38,10 +38,10 @@ export default function Navbar() {
 
         <div className={`${styles.menuContainer} ${isMobileMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navLinks}>
-            <li><a href="#jeu">Notre jeu</a></li>
+            <li><a href="#entreprise">Notre entreprise</a></li>
             <li><a href="#timeline">Feuille de route</a></li>
             <li><a href="#equipe">Notre équipe</a></li>
-            <li><a href="#entreprise">Notre entreprise</a></li>
+            <li><a href="#jeu">Notre jeu</a></li>
           </ul>
         </div>
       </div>

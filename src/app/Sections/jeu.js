@@ -16,7 +16,7 @@ const features = [
   },
   {
     id: 2,
-    title: "🎮 Mini-jeux thématiques axés sur des dilemmes sociétaux",
+    title: "🕹️ Mini-jeux thématiques axés sur des dilemmes sociétaux",
     description:
       "Chaque salle propose un mini-jeu qui aborde des problématiques contemporaines (écologie, inclusion, responsabilité sociétale) de manière ludique et implicite. Les joueurs gèrent des ressources, coopèrent pour surmonter des obstacles ou prennent des décisions rapides face à des situations complexes. Ces scénarios éducatifs stimulent la réflexion sans moralisation directe, renforçant l'impact du jeu sur la conscience des enjeux mondiaux.",
 
@@ -65,7 +65,9 @@ const Features = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>HorizonBreak - Notre Jeu</h1>
+      <h1 className={styles.title}>🎮 HorizonBreak - Notre jeu</h1>
+      <h2 className={styles.subtitle}>Un gameplay toujours unique, à chaque partie</h2>
+      <div className={styles.titleUnderline}></div>
       <div className={styles.featureList}>
         {features.map((feature) => (
           <motion.div
@@ -89,6 +91,7 @@ const Features = () => {
           </motion.div>
         ))}
       </div>
+
 
       <AnimatePresence>
     {selectedId && (
