@@ -46,7 +46,6 @@
   
   .sectionEmoji {
     font-size: 3rem;
-    animation: bounce 2s infinite;
   }
   
   @keyframes bounce {

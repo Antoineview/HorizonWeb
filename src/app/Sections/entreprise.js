@@ -24,7 +24,7 @@ const sections = [
   {
     id: 'strengths',
     emoji: '💪',
-    title: 'Nos forces et notre vision',
+    title: 'Nos forces',
     subtitle: "Un esprit d'équipe, une vision audacieuse, une quête incessante d'innovation",
     features: [
       {
@@ -53,7 +53,7 @@ const sections = [
   {
     id: 'commitment',
     emoji: '❤️',
-    title: "Notre engagement envers l'équipe",
+    title: "Nos engagements",
     subtitle: 'Soutenir, inspirer, et valoriser chaque talent',
     quote: "Chez HorizonLabs, nous croyons que la diversité des perspectives est la clé de l'innovation. Chaque voix compte, chaque idée peut changer la donne.",
     expandedContent: {
@@ -111,7 +111,6 @@ export default function Entreprise() {
 
           <motion.div 
             className={styles.contentCard}
-            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
             {section.features ? (

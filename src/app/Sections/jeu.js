@@ -16,7 +16,7 @@ const features = [
   },
   {
     id: 2,
-    title: "🎮 Mini-jeux thématiques axés sur des dilemmes sociétaux",
+    title: "🕹️ Mini-jeux thématiques axés sur des dilemmes sociétaux",
     description:
       "Chaque salle propose un mini-jeu qui aborde des problématiques contemporaines (écologie, inclusion, responsabilité sociétale) de manière ludique et implicite. Les joueurs gèrent des ressources, coopèrent pour surmonter des obstacles ou prennent des décisions rapides face à des situations complexes. Ces scénarios éducatifs stimulent la réflexion sans moralisation directe, renforçant l'impact du jeu sur la conscience des enjeux mondiaux.",
 

@@ -98,7 +98,7 @@ const Timeline = () => {
       <header className="timeline-header">
         <h1 className="timeline-title">🗺️ Feuille de route</h1>
         <p className="timeline-subtitle">
-          Notre voyage vers l&apos;innovation ✈️
+          Notre voyage vers l&apos;innovation
         </p>
       </header>
 
