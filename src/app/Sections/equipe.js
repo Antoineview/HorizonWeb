@@ -53,41 +53,33 @@ export default function Equipe() {
 
   return (
     <div className={styles.teamGallery}>
-      <h1 className={styles.title}>🎮 Notre équipe</h1>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>🤝 Notre équipe</h1>
+        <p className={styles.subtitle}>Une équipe, une passion</p>
+        <div className={styles.titleUnderline}></div>
+      </div>
+
       <div className={styles.galleryGrid}>
         {teamMembers.map((member) => (
           <motion.div
             key={member.id}
-            layoutId={`card-${member.id}`}
-            onClick={() => setSelectedId(member.id)}
             className={styles.memberCard}
+            onClick={() => setSelectedId(member.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              layoutId={`image-container-${member.id}`}
-              className={styles.imageContainer}
-            >
+            <div className={styles.imageContainer}>
               <Image
                 src={member.image}
                 alt={member.name}
                 width={200}
                 height={200}
                 className={styles.memberImage}
+                priority
               />
-            </motion.div>
-            <motion.h2
-              layoutId={`name-${member.id}`}
-              className={styles.memberName}
-            >
-              {member.name}
-            </motion.h2>
-            <motion.p
-              layoutId={`role-${member.id}`}
-              className={styles.memberRole}
-            >
-              {member.role}
-            </motion.p>
+            </div>
+            <h2 className={styles.memberName}>{member.name}</h2>
+            <p className={styles.memberRole}>{member.role}</p>
           </motion.div>
         ))}
       </div>
@@ -96,21 +88,23 @@ export default function Equipe() {
         {selectedId && (
           <motion.div
             key="overlay"
-            initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
-            animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-            exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-              layoutId={`card-${selectedId}`}
+              key={`card-${selectedId}`}
               className={styles.expandedCard}
               onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
             >
               <button
                 className={styles.closeButton}
                 onClick={() => setSelectedId(null)}
-                aria-label="Fermer"
               >
                 &times;
               </button>
@@ -119,10 +113,7 @@ export default function Equipe() {
                 if (!member) return null;
                 return (
                   <>
-                    <motion.div
-                      layoutId={`image-container-${member.id}`}
-                      className={styles.expandedImageContainer}
-                    >
+                    <div className={styles.expandedImageContainer}>
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -130,27 +121,16 @@ export default function Equipe() {
                         height={300}
                         className={styles.expandedMemberImage}
                       />
-                    </motion.div>
-                    <motion.h2
-                      layoutId={`name-${member.id}`}
-                      className={styles.expandedMemberName}
-                    >
+                    </div>
+                    <h2 className={styles.expandedMemberName}>
                       {member.name}
-                    </motion.h2>
-                    <motion.p
-                      layoutId={`role-${member.id}`}
-                      className={styles.expandedMemberRole}
-                    >
+                    </h2>
+                    <p className={styles.expandedMemberRole}>
                       {member.role}
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className={styles.memberDescription}
-                    >
+                    </p>
+                    <p className={styles.memberDescription}>
                       {member.description}
-                    </motion.p>
+                    </p>
                   </>
                 );
               })()}

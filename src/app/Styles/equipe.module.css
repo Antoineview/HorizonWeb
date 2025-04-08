@@ -9,10 +9,27 @@
 }
 
 .title {
-    font-size: 2.1rem;
-    font-weight: bold;
-    margin-bottom: 5rem;
-}
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+  
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  
+  .titleUnderline {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffffff, #000000);
+    border-radius: 2px;
+    margin-top: 1rem;
+  }
 
 .galleryGrid {
     display: flex;
@@ -24,24 +41,30 @@
     margin: 0 auto;
 }
 
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+  }
+
 .memberCard {
     background-color: white;
-    color: black;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
     width: calc(33.333% - 1.333rem);
     max-width: 280px;
+    transition: transform 0.3s ease;
     box-shadow:
-        0px 0.8px 2.2px rgba(0, 0, 0, 0.02),
-        0px 1.9px 5.3px rgba(0, 0, 0, 0.028),
-        0px 3.6px 10px rgba(0, 0, 0, 0.035),
-        0px 6.4px 17.9px rgba(0, 0, 0, 0.042),
-        0px 12px 33.4px rgba(0, 0, 0, 0.05),
-        0px 28px 80px rgba(0, 0, 0, 0.07);
+        0px 0px 2.7px rgba(0, 0, 0, 0.012),
+        0px 0px 6.9px rgba(0, 0, 0, 0.018),
+        0px 0px 14.2px rgba(0, 0, 0, 0.022),
+        0px 0px 29.2px rgba(0, 0, 0, 0.028),
+        0px 0px 80px rgba(0, 0, 0, 0.04);
+}
+
+.memberCard:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 900px) {
@@ -57,30 +80,34 @@
 }
 
 .imageContainer {
-    width: 100%;
-    height: 250px;
-    margin-bottom: 1rem;
+    border-radius: 15px;
     overflow: hidden;
-    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    height: 250px;
+    width: 100%;
 }
 
 .memberImage {
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .memberName {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    text-align: center;
+    color: #000;
 }
 
 .memberRole {
-    font-size: 0.875rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: #666;
-    text-align: center;
+}
+
+.memberRole::first-letter {
+    font-size: 1.3rem;
 }
 
 .overlay {
@@ -162,9 +189,10 @@
 }
 
 .memberDescription {
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
     text-align: justify;
+    color: #333;
 }
 
 @media (max-width: 900px) {

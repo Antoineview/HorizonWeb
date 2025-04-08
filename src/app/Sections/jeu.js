@@ -65,7 +65,9 @@ const Features = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>HorizonBreak - Notre Jeu</h1>
+      <h1 className={styles.title}>🎮 HorizonBreak - Notre jeu</h1>
+      <h2 className={styles.subtitle}>Un gameplay toujours unique, à chaque partie</h2>
+      <div className={styles.titleUnderline}></div>
       <div className={styles.featureList}>
         {features.map((feature) => (
           <motion.div
@@ -89,6 +91,7 @@ const Features = () => {
           </motion.div>
         ))}
       </div>
+
 
       <AnimatePresence>
     {selectedId && (
