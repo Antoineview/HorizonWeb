@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useRef } from "react";
 
 import {
@@ -117,7 +115,7 @@ const Timeline = () => {
 
 const TimelineItem = ({ data, index }) => {
   const itemRef = useRef(null);
-  const isInView = useInView(itemRef, { once: true, amount: 0.5 });
+  const isInView = useInView(itemRef, { amount: 0.5 });
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
@@ -164,7 +162,7 @@ const TimelineItem = ({ data, index }) => {
               <motion.div
                 className="timeline-progress-value"
                 initial={{ width: 0 }}
-                animate={isInView ? { width: `${value}%` } : { width: 0 }}
+                animate={isInView ? { scale: 1 } : { scale: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
               />
             </div>

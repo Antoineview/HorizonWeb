@@ -67,6 +67,10 @@ export default function Equipe() {
             onClick={() => setSelectedId(member.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 50 }}  // Initial animation (hidden)
+            whileInView={{ opacity: 1, y: 0 }} // Animation when the element enters the viewport
+            viewport={{ once: true }}  // Trigger animation only once when it comes into view
+            transition={{ duration: 0.8 }}  // Duration of animation
           >
             <div className={styles.imageContainer}>
               <Image
