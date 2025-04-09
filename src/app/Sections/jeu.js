@@ -67,12 +67,17 @@ const Features = () => {
             onClick={() => setSelectedId(feature.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 50 }}  // Initial animation (hidden)
-            whileInView={{ opacity: 1, y: 0 }} // Animation when the element enters the viewport
-            viewport={{ once: true }}  // Trigger animation only once when it comes into view
-            transition={{ duration: 0.8 }}  // Duration of animation
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 60 }}
+            transition={{ duration: 0, ease: "easeOut" }}
           >
-            <div className={styles.imageContainer}>
+            <motion.div
+              className={styles.imageContainer}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+            >
               <Image
                 src={feature.image}
                 alt={feature.title}
@@ -81,8 +86,15 @@ const Features = () => {
                 className={styles.featureImage}
                 priority
               />
-            </div>
-            <h2 className={styles.featureTitle}>{feature.title}</h2>
+            </motion.div>
+            <motion.h2
+              className={styles.featureTitle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              {feature.title}
+            </motion.h2>
           </motion.div>
         ))}
       </div>
@@ -96,6 +108,7 @@ const Features = () => {
             exit={{ opacity: 0 }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
+            transition={{ duration: 0.3 }}
           >
             <motion.div
               key={`card-${selectedId}`}
@@ -104,19 +117,29 @@ const Features = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <button
+              <motion.button
                 className={styles.closeButton}
                 onClick={() => setSelectedId(null)}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ delay: 0.4 }}
               >
-                &times; {/* Affiche une croix */}
-              </button>
+                &times;
+              </motion.button>
               {(() => {
                 const feature = features.find((f) => f.id === selectedId);
                 if (!feature) return null;
                 return (
                   <>
-                    <div className={styles.expandedImageContainer}>
+                    <motion.div
+                      className={styles.expandedImageContainer}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0, duration: 0 }}
+                    >
                       <Image
                         src={feature.image}
                         alt={feature.title}
@@ -124,7 +147,7 @@ const Features = () => {
                         height={400}
                         className={styles.expandedFeatureImage}
                       />
-                    </div>
+                    </motion.div>
                     <h2 className={styles.expandedFeatureTitle}>
                       {feature.title}
                     </h2>

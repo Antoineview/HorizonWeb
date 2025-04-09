@@ -67,23 +67,41 @@ export default function Equipe() {
             onClick={() => setSelectedId(member.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 50 }}  // Initial animation (hidden)
-            whileInView={{ opacity: 1, y: 0 }} // Animation when the element enters the viewport
-            viewport={{ once: true }}  // Trigger animation only once when it comes into view
-            transition={{ duration: 0.8 }}  // Duration of animation
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 60 }}
+            transition={{ duration: 0, ease: "easeOut" }}
           >
-            <div className={styles.imageContainer}>
+            <motion.div
+              className={styles.imageContainer}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+            >
               <Image
                 src={member.image}
                 alt={member.name}
                 width={200}
                 height={200}
                 className={styles.memberImage}
-                priority
               />
-            </div>
-            <h2 className={styles.memberName}>{member.name}</h2>
-            <p className={styles.memberRole}>{member.role}</p>
+            </motion.div>
+            <motion.h2
+              className={styles.memberName}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              {member.name}
+            </motion.h2>
+            <motion.p
+              className={styles.memberRole}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              {member.role}
+            </motion.p>
           </motion.div>
         ))}
       </div>
@@ -97,6 +115,7 @@ export default function Equipe() {
             exit={{ opacity: 0 }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
+            transition={{ duration: 0.3 }}
           >
             <motion.div
               key={`card-${selectedId}`}
@@ -105,19 +124,29 @@ export default function Equipe() {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <button
+              <motion.button
                 className={styles.closeButton}
                 onClick={() => setSelectedId(null)}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ delay: 0.4 }}
               >
                 &times;
-              </button>
+              </motion.button>
               {(() => {
                 const member = teamMembers.find((m) => m.id === selectedId);
                 if (!member) return null;
                 return (
                   <>
-                    <div className={styles.expandedImageContainer}>
+                    <motion.div
+                      className={styles.expandedImageContainer}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0, duration: 0 }}
+                    >
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -125,7 +154,7 @@ export default function Equipe() {
                         height={300}
                         className={styles.expandedMemberImage}
                       />
-                    </div>
+                    </motion.div>
                     <h2 className={styles.expandedMemberName}>
                       {member.name}
                     </h2>
