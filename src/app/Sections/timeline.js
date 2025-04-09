@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 
 import {
@@ -94,9 +96,7 @@ const Timeline = () => {
   return (
     <div className="timeline-container" ref={containerRef}>
       <header className="timeline-header">
-      <h1 className="timeline-title">
-  <span className="timeline-emoji">🗺️</span> Feuille de route
-</h1>
+        <h1 className="timeline-title">🗺️ Feuille de route</h1>
         <p className="timeline-subtitle">
           Notre voyage vers l&apos;innovation
         </p>
@@ -115,7 +115,7 @@ const Timeline = () => {
 
 const TimelineItem = ({ data, index }) => {
   const itemRef = useRef(null);
-  const isInView = useInView(itemRef, { amount: 0.5 });
+  const isInView = useInView(itemRef, { once: true, amount: 0.5 });
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
@@ -162,7 +162,7 @@ const TimelineItem = ({ data, index }) => {
               <motion.div
                 className="timeline-progress-value"
                 initial={{ width: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                animate={isInView ? { width: `${value}%` } : { width: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
               />
             </div>
@@ -173,7 +173,7 @@ const TimelineItem = ({ data, index }) => {
         className="timeline-dot"
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
-        transition={{ duration: 0.5, delay: 1.2 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
       />
     </div>
   );
