@@ -51,6 +51,9 @@ const teamMembers = [
 export default function Equipe() {
   const [selectedId, setSelectedId] = useState(null);
 
+  // Prefixe pour éviter les conflits d'ID avec le composant Jeu
+  const idPrefix = "equipe-";
+
   return (
     <div className={styles.teamGallery}>
       <div className={styles.titleContainer}>
@@ -58,25 +61,19 @@ export default function Equipe() {
         <p className={styles.subtitle}>Une équipe, une passion</p>
         <div className={styles.titleUnderline}></div>
       </div>
-
       <div className={styles.galleryGrid}>
         {teamMembers.map((member) => (
           <motion.div
             key={member.id}
-            className={styles.memberCard}
+            layoutId={`${idPrefix}card-${member.id}`}
             onClick={() => setSelectedId(member.id)}
+            className={styles.memberCard}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 60 }}
-            transition={{ duration: 0, ease: "easeOut" }}
           >
             <motion.div
+              layoutId={`${idPrefix}image-container-${member.id}`}
               className={styles.imageContainer}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
             >
               <Image
                 src={member.image}
@@ -87,18 +84,14 @@ export default function Equipe() {
               />
             </motion.div>
             <motion.h2
+              layoutId={`${idPrefix}name-${member.id}`}
               className={styles.memberName}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
             >
               {member.name}
             </motion.h2>
             <motion.p
+              layoutId={`${idPrefix}role-${member.id}`}
               className={styles.memberRole}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
             >
               {member.role}
             </motion.p>
@@ -110,42 +103,32 @@ export default function Equipe() {
         {selectedId && (
           <motion.div
             key="overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
-            transition={{ duration: 0.3 }}
           >
             <motion.div
-              key={`card-${selectedId}`}
+              layoutId={`${idPrefix}card-${selectedId}`}
               className={styles.expandedCard}
               onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <motion.button
+              <button
                 className={styles.closeButton}
                 onClick={() => setSelectedId(null)}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ delay: 0.4 }}
+                aria-label="Fermer"
               >
                 &times;
-              </motion.button>
+              </button>
               {(() => {
                 const member = teamMembers.find((m) => m.id === selectedId);
                 if (!member) return null;
                 return (
                   <>
                     <motion.div
+                      layoutId={`${idPrefix}image-container-${member.id}`}
                       className={styles.expandedImageContainer}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0, duration: 0 }}
                     >
                       <Image
                         src={member.image}
@@ -155,15 +138,26 @@ export default function Equipe() {
                         className={styles.expandedMemberImage}
                       />
                     </motion.div>
-                    <h2 className={styles.expandedMemberName}>
+                    <motion.h2
+                      layoutId={`${idPrefix}name-${member.id}`}
+                      className={styles.expandedMemberName}
+                    >
                       {member.name}
-                    </h2>
-                    <p className={styles.expandedMemberRole}>
+                    </motion.h2>
+                    <motion.p
+                      layoutId={`${idPrefix}role-${member.id}`}
+                      className={styles.expandedMemberRole}
+                    >
                       {member.role}
-                    </p>
-                    <p className={styles.memberDescription}>
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={styles.memberDescription}
+                    >
                       {member.description}
-                    </p>
+                    </motion.p>
                   </>
                 );
               })()}

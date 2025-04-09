@@ -53,45 +53,43 @@ const features = [
 const Features = () => {
   const [selectedId, setSelectedId] = useState(null);
 
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>🎮 HorizonBreak - Notre jeu</h1>
-      <h2 className={styles.subtitle}>Un gameplay toujours unique, à chaque partie</h2>
-      <div className={styles.titleUnderline}></div>
+  // Prefixe pour éviter les conflits d'ID avec le composant Equipe
+  const idPrefix = "jeu-";
 
-      <div className={styles.featureList}>
+  return (
+    <div className={styles.teamGallery}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>🎮 HorizonBreak - Notre jeu</h1>
+        <p className={styles.subtitle}>Un gameplay toujours unique, à chaque partie</p>
+        <div className={styles.titleUnderline}></div>
+      </div>
+
+      <div className={styles.galleryGrid}>
         {features.map((feature) => (
           <motion.div
             key={feature.id}
-            className={styles.featureCard}
+            layoutId={`${idPrefix}card-${feature.id}`}
+            className={styles.memberCard}
             onClick={() => setSelectedId(feature.id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 60 }}
-            transition={{ duration: 0, ease: "easeOut" }}
           >
             <motion.div
+              layoutId={`${idPrefix}image-container-${feature.id}`}
               className={styles.imageContainer}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
             >
               <Image
                 src={feature.image}
                 alt={feature.title}
                 width={600}
                 height={400}
-                className={styles.featureImage}
+                className={styles.memberImage}
                 priority
               />
             </motion.div>
             <motion.h2
-              className={styles.featureTitle}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              layoutId={`${idPrefix}title-${feature.id}`}
+              className={styles.memberName}
             >
               {feature.title}
             </motion.h2>
@@ -103,57 +101,55 @@ const Features = () => {
         {selectedId && (
           <motion.div
             key="overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
+            animate={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
             className={styles.overlay}
             onClick={() => setSelectedId(null)}
-            transition={{ duration: 0.3 }}
           >
             <motion.div
-              key={`card-${selectedId}`}
+              layoutId={`${idPrefix}card-${selectedId}`}
               className={styles.expandedCard}
               onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <motion.button
+              <button
                 className={styles.closeButton}
                 onClick={() => setSelectedId(null)}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ delay: 0.4 }}
+                aria-label="Fermer"
               >
                 &times;
-              </motion.button>
+              </button>
               {(() => {
                 const feature = features.find((f) => f.id === selectedId);
                 if (!feature) return null;
                 return (
                   <>
                     <motion.div
+                      layoutId={`${idPrefix}image-container-${feature.id}`}
                       className={styles.expandedImageContainer}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0, duration: 0 }}
                     >
                       <Image
                         src={feature.image}
                         alt={feature.title}
                         width={600}
                         height={400}
-                        className={styles.expandedFeatureImage}
+                        className={styles.expandedMemberImage}
                       />
                     </motion.div>
-                    <h2 className={styles.expandedFeatureTitle}>
+                    <motion.h2
+                      layoutId={`${idPrefix}title-${feature.id}`}
+                      className={styles.expandedMemberName}
+                    >
                       {feature.title}
-                    </h2>
-                    <p className={styles.featureDescription}>
+                    </motion.h2>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={styles.memberDescription}
+                    >
                       {feature.description}
-                    </p>
+                    </motion.p>
                   </>
                 );
               })()}
