@@ -115,7 +115,7 @@ const Timeline = () => {
 
 const TimelineItem = ({ data, index }) => {
   const itemRef = useRef(null);
-  const isInView = useInView(itemRef, { once: true, amount: 0.5 });
+  const isInView = useInView(itemRef, { once: false, amount: 0.5 });
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
@@ -171,9 +171,10 @@ const TimelineItem = ({ data, index }) => {
       </motion.div>
       <motion.div
         className="timeline-dot"
+        style={{ opacity }}
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
-        transition={{ duration: 0.4, delay: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
       />
     </div>
   );
