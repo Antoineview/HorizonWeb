@@ -71,8 +71,9 @@ const Features = () => {
             layoutId={`${idPrefix}card-${feature.id}`}
             className={styles.memberCard}
             onClick={() => setSelectedId(feature.id)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
             <motion.div
               layoutId={`${idPrefix}image-container-${feature.id}`}

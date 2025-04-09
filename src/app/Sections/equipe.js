@@ -68,8 +68,9 @@ export default function Equipe() {
             layoutId={`${idPrefix}card-${member.id}`}
             onClick={() => setSelectedId(member.id)}
             className={styles.memberCard}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
             <motion.div
               layoutId={`${idPrefix}image-container-${member.id}`}
