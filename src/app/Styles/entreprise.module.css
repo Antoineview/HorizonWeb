@@ -203,3 +203,11 @@
       padding: 1.5rem;
     }
   }
+
+.contactSection .sectionTitle {
+  margin-top: 4rem; 
+}
+
+.contactSection .grid {
+  justify-content: center;
+}

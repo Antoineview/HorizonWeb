@@ -9,6 +9,7 @@ import Equipe from "./Sections/equipe";
 import Footer from "./Sections/footer";
 import Jeu from "./Sections/jeu";
 import Entreprise from "./Sections/entreprise";
+import Contact from './Sections/Contact';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -68,6 +69,9 @@ export default function Home() {
             </section>
             <section id="jeu">
               <Jeu />
+            </section>
+            <section id="contact">
+              <Contact />
             </section>
             <section id="footer">
               <Footer />
