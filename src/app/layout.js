@@ -1,7 +1,7 @@
 // app/layout.jsx
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./Components/Navbar.js";
+import Navbar from "./Sections/Navbar.js";
 import styles from "./Styles/page.module.css";
 import dynamic from "next/dynamic";
 
