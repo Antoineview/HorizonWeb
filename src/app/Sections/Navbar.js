@@ -36,11 +36,6 @@ export default function Navbar() {
           ☰
         </button>
         
-<div className={styles.downloadButtonContainer}>
-  <a href="/downloads/mon-jeu.zip" className={styles.downloadButton} download>
-    Télécharger
-  </a>
-</div>
 
         <div className={`${styles.menuContainer} ${isMobileMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navLinks}>
@@ -50,6 +45,11 @@ export default function Navbar() {
             <li><a href="#jeu">Notre jeu</a></li>
           </ul>
         </div>
+        <div className={styles.downloadButtonContainer}>
+  <a href="/downloads/mon-jeu.zip" className={styles.downloadButton} download>
+    Télécharger
+  </a>
+</div>
         
       </div>
     </motion.nav>

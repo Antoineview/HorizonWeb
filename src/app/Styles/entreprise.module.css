@@ -211,3 +211,34 @@
 .contactSection .grid {
   justify-content: center;
 }
+
+a.downloadLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.downloadButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.downloadGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.downloadGrid .readMoreBtn {
+  width: 100%;
+  text-align: center;
+}

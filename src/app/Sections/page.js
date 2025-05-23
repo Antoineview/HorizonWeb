@@ -9,6 +9,7 @@ import Equipe from "./Sections/equipe";
 import Footer from "./Sections/footer";
 import Jeu from "./Sections/jeu";
 import Entreprise from "./Sections/entreprise";
+import Telechargement from './Sections/telechargement';
 import Contact from './Sections/Contact';
 
 export default function Home() {
@@ -69,6 +70,9 @@ export default function Home() {
             </section>
             <section id="jeu">
               <Jeu />
+            </section>
+            <section id="téléchargement">
+              <Telechargement />
             </section>
             <section id="contact">
               <Contact />
