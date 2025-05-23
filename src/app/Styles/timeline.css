@@ -22,22 +22,38 @@ body {
 
 /* Header */
 .timeline-header {
-    text-align: center;
-    padding: 4rem 0;
-    border-bottom: 2px solid electricblue;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.timeline-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffffff, #000000);
+  border-radius: 2px;
 }
 
 .timeline-title {
-    font-size: 2.1rem;
-    font-weight: 800;
-    color: black;
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
+
 .timeline-subtitle {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: electricblue;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 /* Timeline */

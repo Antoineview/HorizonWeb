@@ -23,6 +23,9 @@ export default function Telechargement() {
   <a href="/downloads/jeu-horizonlabs.zip" className={styles.readMoreBtn} download>
     🎮 Télécharger le jeu
   </a>
+  <a href="/downloads/cdc.pdf" className={styles.readMoreBtn} download>
+    📘 Cahier des charges
+  </a>
   <a href="/downloads/rapport1.pdf" className={styles.readMoreBtn} download>
     📘 Rapport 1
   </a>
