@@ -21,23 +21,23 @@ export default function Telechargement() {
       <motion.div className={styles.contentCard}>
         <div className={styles.downloadGrid}>
   <a href="/downloads/jeu-horizonlabs.zip" className={styles.readMoreBtn} download>
-    🎮 Télécharger le jeu
-  </a>
-  <a href="/downloads/cdc.pdf" className={styles.readMoreBtn} download>
-    📘 Cahier des charges
-  </a>
-  <a href="/downloads/rapport1.pdf" className={styles.readMoreBtn} download>
-    📘 Rapport 1
-  </a>
-  <a href="/downloads/rapport2.pdf" className={styles.readMoreBtn} download>
-    📗 Rapport 2
-  </a>
-  <a href="/downloads/rapport3.pdf" className={styles.readMoreBtn} download>
-    📙 Rapport 3
-  </a>
-  <a href="/downloads/notice.pdf" className={styles.readMoreBtn} download>
-    📄 Notice d'utilisation
-  </a>
+  🎮 Télécharger le jeu
+</a>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/cdc.pdf" className={styles.readMoreBtn} download>
+  📘 Cahier des charges
+</a>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/soutenance_technique_1.pdf" className={styles.readMoreBtn} download>
+  📘 Rapport 1
+</a>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/Soutenance_technique_2.pdf" className={styles.readMoreBtn} download>
+  📗 Rapport 2
+</a>
+<a href="/downloads/rapport3.pdf" className={styles.readMoreBtn} download>
+  📙 Rapport 3
+</a>
+<a href="/downloads/notice.pdf" className={styles.readMoreBtn} download>
+  📄 Notice d'utilisation
+</a>
 </div>
       </motion.div>
     </motion.section>
