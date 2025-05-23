@@ -7,8 +7,7 @@ import styles from '../Styles/entreprise.module.css';
 export default function Telechargement() {
   return (
     <motion.section
-      id="download"
-      className={styles.section}
+  className={`${styles.section} ${styles.downloadSection}`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
