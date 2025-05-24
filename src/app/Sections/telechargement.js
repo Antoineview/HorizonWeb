@@ -20,7 +20,7 @@ export default function Telechargement() {
 
       <motion.div className={styles.contentCard}>
         <div className={styles.downloadGrid}>
-  <a href="/downloads/jeu-horizonlabs.zip" className={styles.readMoreBtn} download>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.zip" className={styles.readMoreBtn} download>
   🎮 Télécharger le jeu
 </a>
 <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/cdc.pdf" className={styles.readMoreBtn} download>
@@ -32,10 +32,10 @@ export default function Telechargement() {
 <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/Soutenance_technique_2.pdf" className={styles.readMoreBtn} download>
   📗 Rapport 2
 </a>
-<a href="/downloads/rapport3.pdf" className={styles.readMoreBtn} download>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/soutenance_technique_3.pdf" className={styles.readMoreBtn} download>
   📙 Rapport 3
 </a>
-<a href="/downloads/notice.pdf" className={styles.readMoreBtn} download>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/notice.pdf" className={styles.readMoreBtn} download>
   📄 Notice d'utilisation
 </a>
 </div>
