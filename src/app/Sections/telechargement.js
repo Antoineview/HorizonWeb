@@ -20,7 +20,7 @@ export default function Telechargement() {
 
       <motion.div className={styles.contentCard}>
         <div className={styles.downloadGrid}>
-<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.zip" className={styles.readMoreBtn} download>
+<a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe" className={styles.readMoreBtn} download>
   🎮 Télécharger le jeu
 </a>
 <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/cdc.pdf" className={styles.readMoreBtn} download>

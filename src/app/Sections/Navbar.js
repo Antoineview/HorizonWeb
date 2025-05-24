@@ -47,7 +47,7 @@ export default function Navbar() {
         </div>
 <div className={styles.downloadButtonContainer}>
   <a 
-    href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.zip" 
+    href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe" 
     className={styles.downloadButton} 
     download
   >
