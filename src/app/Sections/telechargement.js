@@ -8,10 +8,19 @@ export default function Telechargement() {
   const [jeuLink, setJeuLink] = useState('');
 
   useEffect(() => {
-    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(navigator.userAgent);
-    const link = isMac
-      ? 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg'
-      : 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe';
+    const userAgent = navigator.userAgent;
+
+    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
+    const isLinux = /Linux|X11/i.test(userAgent) && !/Android/i.test(userAgent);
+
+    let link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe'; // Windows par défaut
+
+    if (isMac) {
+      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg';
+    } else if (isLinux) {
+      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.flatpak';
+    }
+
     setJeuLink(link);
   }, []);
 
@@ -31,9 +40,11 @@ export default function Telechargement() {
       <motion.div className={styles.contentCard}>
         <div className={styles.downloadGrid}>
           {jeuLink && (
-            <a href={jeuLink} className={styles.readMoreBtn} download>
-              🎮 Télécharger le jeu
-            </a>
+            <div className={styles.jeuContainer}>
+              <a href={jeuLink} className={styles.readMoreBtn} download>
+                🎮 Télécharger le jeu
+              </a>
+            </div>
           )}
           <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/cdc.pdf" className={styles.readMoreBtn} download>
             📘 Cahier des charges

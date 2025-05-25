@@ -21,10 +21,19 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(navigator.userAgent);
-    const link = isMac
-      ? 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg'
-      : 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe';
+    const userAgent = navigator.userAgent;
+
+    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
+    const isLinux = /Linux|X11/i.test(userAgent) && !/Android/i.test(userAgent);
+
+    let link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe'; // Par défaut Windows
+
+    if (isMac) {
+      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg';
+    } else if (isLinux) {
+      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.flatpak';
+    }
+
     setJeuLink(link);
   }, []);
 
