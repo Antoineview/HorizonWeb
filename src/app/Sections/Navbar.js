@@ -6,6 +6,7 @@ import styles from "../Styles/navbar.module.css";
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [jeuLink, setJeuLink] = useState("");
 
   const handleScroll = () => {
     setIsVisible(window.scrollY <= 15);
@@ -19,6 +20,14 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(navigator.userAgent);
+    const link = isMac
+      ? 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg'
+      : 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe';
+    setJeuLink(link);
+  }, []);
+
   return (
     <motion.nav
       className={styles.navbar}
@@ -28,14 +37,13 @@ export default function Navbar() {
     >
       <div className={styles.navContent}>
         <h1 className={styles.logo}>HorizonWeb</h1>
-        
+
         <button 
           className={styles.hamburger}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           ☰
         </button>
-        
 
         <div className={`${styles.menuContainer} ${isMobileMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navLinks}>
@@ -45,16 +53,18 @@ export default function Navbar() {
             <li><a href="#jeu">Notre jeu</a></li>
           </ul>
         </div>
-<div className={styles.downloadButtonContainer}>
-  <a 
-    href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe" 
-    className={styles.downloadButton} 
-    download
-  >
-    Télécharger
-  </a>
-</div>
-        
+
+        {jeuLink && (
+          <div className={styles.downloadButtonContainer}>
+            <a 
+              href={jeuLink} 
+              className={styles.downloadButton} 
+              download
+            >
+              Télécharger
+            </a>
+          </div>
+        )}
       </div>
     </motion.nav>
   );
