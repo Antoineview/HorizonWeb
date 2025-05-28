@@ -32,10 +32,10 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: "Garance DUFRAISSE",
+    name: "Elian DUFRAISSE",
     role: "🤖 Responsable de l'intelligence artificielle",
     description:
-      "Née en 2006, Garance est une touche-à-tout curieuse et polyvalente, avec un excellent œil pour les détails. Forte de cinq années passées au Japon, elle combine ouverture d'esprit et créativité. Son expertise en orthographe et son enthousiasme pour les projets insolites en font une alliée précieuse pour l'équipe.",
+      "Née en 2006, Elian est une touche-à-tout curieuse et polyvalente, avec un excellent œil pour les détails. Forte de cinq années passées au Japon, elle combine ouverture d'esprit et créativité. Son expertise en orthographe et son enthousiasme pour les projets insolites en font une alliée précieuse pour l'équipe.",
     image: "/elian.png",
   },
   {

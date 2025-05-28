@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import styles from '../Styles/entreprise.module.css';
 
 const contacts = [
-  { name: "Garance DUFRAISSE", email: "garance.dufraisse@epita.fr" },
+  { name: "Elian DUFRAISSE", email: "garance.dufraisse@epita.fr" },
   { name: "Antoine RICHARD-CAPPONI", email: "antoine.richard-capponi@epita.fr" },
   { name: "Louis CHABERT", email: "louis.chabert@epita.fr" },
   { name: "Fanny ALACOQUE", email: "fanny.alacoque@epita.fr" },
