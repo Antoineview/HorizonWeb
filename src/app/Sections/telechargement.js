@@ -13,10 +13,10 @@ export default function Telechargement() {
     const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
     const isLinux = /Linux|X11/i.test(userAgent) && !/Android/i.test(userAgent);
 
-    let link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe'; // Windows par défaut
+    let link = 'https://drive.google.com/file/d/1OJXI-3Oi_9Yi2MGJruYdGdzW5MsoNpaL/view?usp=share_link'; // Windows par défaut
 
     if (isMac) {
-      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg';
+      link = 'https://drive.google.com/file/d/1PYCnqnjA1N59JqajsRK3lz9WDyS9yU0K/view?usp=share_link';
     } else if (isLinux) {
       link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.flatpak';
     }
@@ -46,19 +46,19 @@ export default function Telechargement() {
               </a>
             </div>
           )}
-          <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/cdc.pdf" className={styles.readMoreBtn} download>
+          <a href="https://drive.google.com/file/d/1NhXAZA8aXOX3X95jEAaWT9MoMB1hTTI8/view?usp=share_link" className={styles.readMoreBtn} download>
             📘 Cahier des charges
           </a>
-          <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/soutenance_technique_1.pdf" className={styles.readMoreBtn} download>
+          <a href="https://drive.google.com/file/d/1kjzGZ5Bexs7q4vJvuvD4L706Sgctdlrg/view?usp=share_link" className={styles.readMoreBtn} download>
             📘 Rapport 1
           </a>
-          <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/Soutenance_technique_2.pdf" className={styles.readMoreBtn} download>
+          <a href="https://drive.google.com/file/d/1OFwu0ci6BuUWx888AjB85A0o4JWHnkPu/view?usp=share_link" className={styles.readMoreBtn} download>
             📗 Rapport 2
           </a>
-          <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/soutenance_technique_3.pdf" className={styles.readMoreBtn} download>
+          <a href="https://drive.google.com/file/d/1ZQT86urlT6BSu317CYgQbD6adtOB6nGI/view?usp=share_link" className={styles.readMoreBtn} download>
             📙 Rapport 3
           </a>
-          <a href="https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/notice.pdf" className={styles.readMoreBtn} download>
+          <a href="https://drive.google.com/file/d/1ZiaFGRj_3QUWLdpfXp5mA01pkHfem02a/view?usp=share_link" className={styles.readMoreBtn} download>
             📄 Notice d'utilisation
           </a>
         </div>

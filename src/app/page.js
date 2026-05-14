@@ -2,15 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import styles from "./Styles/page.module.css";
-import Timeline from "./Sections/timeline";
 import SplineViewer from "./Sections/SplineViewer";
-import Equipe from "./Sections/equipe";
-import Footer from "./Sections/footer";
-import Jeu from "./Sections/jeu";
-import Entreprise from "./Sections/entreprise";
-import Telechargement from './Sections/telechargement';
-import Contact from './Sections/Contact';
+
+const Timeline = dynamic(() => import("./Sections/timeline"), { ssr: false });
+const Equipe = dynamic(() => import("./Sections/equipe"), { ssr: false });
+const Footer = dynamic(() => import("./Sections/footer"), { ssr: false });
+const Jeu = dynamic(() => import("./Sections/jeu"), { ssr: false });
+const Entreprise = dynamic(() => import("./Sections/entreprise"), { ssr: false });
+const Telechargement = dynamic(() => import('./Sections/telechargement'), { ssr: false });
+const Contact = dynamic(() => import('./Sections/Contact'), { ssr: false });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

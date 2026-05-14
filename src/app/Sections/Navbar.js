@@ -26,10 +26,10 @@ export default function Navbar() {
     const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
     const isLinux = /Linux|X11/i.test(userAgent) && !/Android/i.test(userAgent);
 
-    let link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.exe'; // Par défaut Windows
+    let link = 'https://drive.google.com/file/d/1OJXI-3Oi_9Yi2MGJruYdGdzW5MsoNpaL/view?usp=share_link'; // Par défaut Windows
 
     if (isMac) {
-      link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.pkg';
+      link = 'https://drive.google.com/file/d/1PYCnqnjA1N59JqajsRK3lz9WDyS9yU0K/view?usp=share_link';
     } else if (isLinux) {
       link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.flatpak';
     }
@@ -47,7 +47,7 @@ export default function Navbar() {
       <div className={styles.navContent}>
         <h1 className={styles.logo}>HorizonWeb</h1>
 
-        <button 
+        <button
           className={styles.hamburger}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -65,9 +65,9 @@ export default function Navbar() {
 
         {jeuLink && (
           <div className={styles.downloadButtonContainer}>
-            <a 
-              href={jeuLink} 
-              className={styles.downloadButton} 
+            <a
+              href={jeuLink}
+              className={styles.downloadButton}
               download
             >
               Télécharger

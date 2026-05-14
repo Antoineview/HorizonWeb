@@ -2,19 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Script from "next/script";
 import styles from "../Styles/page.module.css";
 
 export default function SplineViewer() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
-    // Load the spline-viewer script
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src =
-      "https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js";
-    script.async = true;
-    document.body.appendChild(script);
 
     // Remove the Spline logo after the component loads
     const timer = setTimeout(() => {
@@ -34,13 +28,17 @@ export default function SplineViewer() {
 
     return () => {
       clearTimeout(timer);
-      document.body.removeChild(script);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div className={styles.sticky}>
+    <>
+      <Script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js" 
+      />
+      <div className={styles.sticky}>
       <div className={styles.stickybox}>
         <spline-viewer
           loading-anim-type="spinner-big-light"
@@ -76,6 +74,7 @@ export default function SplineViewer() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
