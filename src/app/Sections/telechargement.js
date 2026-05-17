@@ -6,17 +6,19 @@ import styles from '../Styles/entreprise.module.css';
 
 export default function Telechargement() {
   const [jeuLink, setJeuLink] = useState('');
+  const [isMac, setIsMac] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
 
-    const isMac = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
+    const macDetected = /Macintosh|MacIntel|MacPPC|Mac68K|Mac OS X/i.test(userAgent);
     const isLinux = /Linux|X11/i.test(userAgent) && !/Android/i.test(userAgent);
 
     let link = 'https://drive.google.com/file/d/1OJXI-3Oi_9Yi2MGJruYdGdzW5MsoNpaL/view?usp=share_link'; // Windows par défaut
 
-    if (isMac) {
+    if (macDetected) {
       link = 'https://drive.google.com/file/d/1PYCnqnjA1N59JqajsRK3lz9WDyS9yU0K/view?usp=share_link';
+      setIsMac(true);
     } else if (isLinux) {
       link = 'https://cdn.kalitsune.net/lend/louis-chabert/ProjetSUP/jeu.flatpak';
     }
@@ -62,6 +64,19 @@ export default function Telechargement() {
             📄 Notice d'utilisation
           </a>
         </div>
+
+        {isMac && (
+          <div className={styles.appStoreContainer}>
+            <a 
+              href="https://apps.apple.com/app/horizonbreakdeluxe/id6746938781" 
+              className={styles.readMoreBtn} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              🍎 Télécharger sur l'App Store
+            </a>
+          </div>
+        )}
       </motion.div>
     </motion.section>
   );

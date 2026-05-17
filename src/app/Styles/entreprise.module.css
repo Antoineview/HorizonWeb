@@ -247,3 +247,10 @@ a.downloadLink {
   width: 100%;
   text-align: center;
 }
+
+.appStoreContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
